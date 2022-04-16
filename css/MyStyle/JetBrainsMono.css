@@ -1,0 +1,10 @@
+/*以下是本地字体引入*/
+@font-face {
+    font-family :  'JetBrains Mono' ;    /*字体名称*/
+    src : url('https://cdn.jsdelivr.net/gh/xiaoliblog/xiaoliblog.github.io/css/fonts/JetBrainsMono/fonts/webfonts/JetBrainsMono-Medium.woff2');/*字体资源*/
+ }
+
+#article-container pre, #article-container code{
+    font-family: 'JetBrains Mono' !important;
+    font-size:16px !important;
+ }
