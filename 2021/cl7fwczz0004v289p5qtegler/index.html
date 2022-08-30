@@ -1,0 +1,466 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>使用分治+递归简化问题求解 | 我的怪兽猫</title><meta name="keywords" content="SpringClond"><meta name="author" content="Monster"><meta name="copyright" content="Monster"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="使用分治+递归简化问题求解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用分治+递归简化问题求解">
+<meta property="og:url" content="https://47.101.148.21/2021/cl7fwczz0004v289p5qtegler/index.html">
+<meta property="og:site_name" content="我的怪兽猫">
+<meta property="og:description" content="使用分治+递归简化问题求解">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/10.jpg">
+<meta property="article:published_time" content="2021-04-20T09:15:45.000Z">
+<meta property="article:modified_time" content="2022-04-16T07:18:08.000Z">
+<meta property="article:author" content="Monster">
+<meta property="article:tag" content="分治法">
+<meta property="article:tag" content="递归思想">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/10.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://47.101.148.21/2021/cl7fwczz0004v289p5qtegler/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-9V4FJV65ZE"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-9V4FJV65ZE');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '使用分治+递归简化问题求解',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2022-04-16 15:18:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/MyStyle/MyStyle.css" media="defer" onload="this.media='all'"/><link rel="stylesheet" href="/css/MyStyle/tagStyle.css" media="defer" onload="this.media='all'"/><link rel="stylesheet" href="/css/MyStyle/JetBrainsMono.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_2630408_9i65adv8yet.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首  页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-wenzhangguanli"></i><span> 看文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标  签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分  类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 搞学习</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/pdf/"><i class="fa-fw iconfont icon-pdf"></i><span> PDF</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw iconfont icon-movie"></i><span> Movie</span></a></li><li><a class="site-page child" href="/leetcode/"><i class="fa-fw iconfont icon-leetcode"></i><span> 算  法</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-xiuxi"></i><span> 去娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce1"></i><span> 相册</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw iconfont icon-book"></i><span> 书单</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 异世界</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-wogerenziliao"></i><span> 关  于</span></a></div><div class="menus_item"><a class="site-page" href="/love/"><i class="fa-fw iconfont icon-aixin"></i><span> 我  们</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">我的怪兽猫</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首  页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-wenzhangguanli"></i><span> 看文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标  签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分  类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 搞学习</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/pdf/"><i class="fa-fw iconfont icon-pdf"></i><span> PDF</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw iconfont icon-movie"></i><span> Movie</span></a></li><li><a class="site-page child" href="/leetcode/"><i class="fa-fw iconfont icon-leetcode"></i><span> 算  法</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-xiuxi"></i><span> 去娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce1"></i><span> 相册</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw iconfont icon-book"></i><span> 书单</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 异世界</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-wogerenziliao"></i><span> 关  于</span></a></div><div class="menus_item"><a class="site-page" href="/love/"><i class="fa-fw iconfont icon-aixin"></i><span> 我  们</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">使用分治+递归简化问题求解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-20T09:15:45.000Z" title="发表于 2021-04-20 17:15:45">2021-04-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-16T07:18:08.000Z" title="更新于 2022-04-16 15:18:08">2022-04-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/%E5%88%86%E6%B2%BB/">分治</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="使用分治+递归简化问题求解"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="使用分治-递归简化问题求解"><a href="#使用分治-递归简化问题求解" class="headerlink" title="使用分治+递归简化问题求解"></a>使用分治+递归简化问题求解</h1><p>​    上次我们说到了求最大的连续子区间问题常用的解决方案——滑动窗口，并使用数据结构+滑动窗口解决更复杂的问题，今天借着复习使用滑动窗口，我们再来学点新知识。话不多说，上题目~</p>
+<h2 id="一、例题"><a href="#一、例题" class="headerlink" title="一、例题"></a>一、例题</h2><p>​    给你一个字符串 s 和一个整数 k ，请你找出 s 中的最长子串， 要求该子串中的每一字符出现次数都不少于 k 。返回这一子串的长度。</p>
+<p><strong>示例</strong> </p>
+<blockquote>
+<p>输入：s = “aaabb”, k = 3<br>输出：3<br>解释：最长子串为 “aaa” ，其中 ‘a’ 重复了 3 次。</p>
+<p>输入：s = “ababbc”, k = 2<br>输出：5<br>解释：最长子串为 “ababb” ，其中 ‘a’ 重复了 2 次， ‘b’ 重复了 3 次。。</p>
+</blockquote>
+<p><strong>提示：</strong></p>
+<ul>
+<li>1 &lt;= s.length &lt;= 104</li>
+<li>s 仅由小写英文字母组成</li>
+<li>1 &lt;= k &lt;= 105</li>
+</ul>
+<h3 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h3><p>​    显而易见，求最大连续子区间的长度，题目说明了只包含小写字母（26 个，为有限数据），我们可以枚举最大长度所包含的字符类型数量，答案必然是 [1, 26]，即最少包含 1 个字母，最多包含 26 个字母，化简问题为26个子问题， 当只有N个字母，每个字母都出现至少k次时的最长串。</p>
+<p>​    首先我们想到的就是使用滑动窗口来解决，对于特定的字符种类数量 <code>t</code>，我们维护滑动窗口的左右边界 <code>l</code>和<code>r</code> 。滑动窗口内部每个字符出现的次数 <code>cnt</code>，以及滑动窗口内的字符种类数目 <code>total</code>。当 <code>total</code> &gt;<code>t</code> 时，我们不断地右移左边界，并对应地更新 <code>cnt</code> 以及<code>total</code>，直到 <code>total</code> ≤ <code>t</code> 为止。</p>
+<p>但是题目中要求<strong>该子串中的每一字符出现次数都不少于 k</strong>，如何才能做到这点呢？</p>
+<ul>
+<li><p>直接遍历，每次遍历窗口中的元素，统计出现次数</p>
+</li>
+<li><p>维护一个计数器，用来记录<strong>当前出现次数小于 k 的字符的数量</strong>，由于每次移动滑动窗口的边界时，只会让某个字符的出现次数加一或者减一。</p>
+<p>所以对于移动左右指针的情况而言，有且仅有两种情况</p>
+<p>​    ①当某个字符的出现次数从 0 增加到 1 时，将 计数器加一</p>
+<p>​    ②当某个字符的出现次数从 k-1增加到 k时，将 计数器减一   </p>
+</li>
+</ul>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">longestSubstring</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> ret <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//符合条件子串的长度</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> t <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> t <span class="token operator">&lt;=</span> <span class="token number">26</span><span class="token punctuation">;</span> t<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">//小于字符集大小</span>
+            <span class="token keyword">int</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//定义左右指针</span>
+            <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> cnt <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//滑动窗口内部每个字符出现的次数</span>
+            <span class="token keyword">int</span> tot <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//滑动窗口内的字符种类数目</span>
+            <span class="token keyword">int</span> less <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//定义计数器</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>r <span class="token operator">&lt;</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">//右指针主动右移</span>
+                cnt<span class="token punctuation">[</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token comment">// 如果某个字符出现（出现次数从 0 增加到 1 ）</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>cnt<span class="token punctuation">[</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    tot<span class="token operator">++</span><span class="token punctuation">;</span>
+                    less<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token comment">// 如果某个字符串出现次数从k-1增加到 k</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>cnt<span class="token punctuation">[</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span> <span class="token operator">==</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    less<span class="token operator">--</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+				<span class="token comment">// 当窗口内的总数大于字符集的大小</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span>tot <span class="token operator">></span> t<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    cnt<span class="token punctuation">[</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>cnt<span class="token punctuation">[</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span> <span class="token operator">==</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                        less<span class="token operator">++</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">&#125;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>cnt<span class="token punctuation">[</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                        tot<span class="token operator">--</span><span class="token punctuation">;</span>
+                        less<span class="token operator">--</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">&#125;</span>
+                    l<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token comment">// 当出现次数小于 k 的字符的数量为0</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>less <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    ret <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>ret<span class="token punctuation">,</span> r <span class="token operator">-</span> l <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                r<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​    可以看出，本题使用滑动窗口反而让问题解决变得更复杂，更容易出错更难理解了，下面我们来介绍一种新的方法</p>
+<h2 id="二、使用分治-递归"><a href="#二、使用分治-递归" class="headerlink" title="二、使用分治 + 递归"></a>二、使用分治 + 递归</h2><h3 id="什么是分治"><a href="#什么是分治" class="headerlink" title="什么是分治"></a>什么是分治</h3><p>​    在使用分治之前，我们先来了解一下什么是分治，字面上的解释是“分而治之”，就是把一个复杂的问题分成两个或更多的相同或相似的子问题，再把子问题分成更小的子问题……直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并。</p>
+<p>​    如果原问题可分割成k个子问题，1&lt;k≤n，且这些子问题都可解并可利用这些子问题的解求出原问题的解，那么这种分治法就是可行的。由分治法产生的子问题往往是原问题的较小模式，这就为使用递归技术提供了方便。在这种情况下，反复应用分治手段，可以使子问题与原问题类型一致而其规模却不断缩小，最终使子问题缩小到很容易直接求出其解。这自然导致递归过程的产生。分治与递归像一对孪生兄弟，经常同时应用在算法设计之中，并由此产生许多高效算法。</p>
+<p>​    <strong>分治是一种思想，它不涉及到具体的算法，而大多数情况下，分治都是借由递归来实现的。</strong></p>
+<h3 id="分治适用情况"><a href="#分治适用情况" class="headerlink" title="分治适用情况"></a>分治适用情况</h3><ol>
+<li><p>该问题的规模缩小到一定的程度就可以容易地解决</p>
+</li>
+<li><p>该问题可以分解为若干个规模较小的相同问题，即该问题具有最优子结构性质。</p>
+</li>
+<li><p>利用该问题分解出的子问题的解可以合并为该问题的解；</p>
+</li>
+<li><p>该问题所分解出的各个子问题是相互独立的，即子问题之间不包含公共的子子问题。</p>
+</li>
+</ol>
+<p>第一条特征是绝大多数问题都可以满足的，因为问题的计算复杂性一般是随着问题规模的增加而增加；</p>
+<p><strong>第二条特征是应用分治法的前提</strong>它也是大多数问题可以满足的，此特征反映了递归思想的应用；</p>
+<p><strong>第三条特征是关键，能否利用分治法完全取决于问题是否具有第三条特征</strong>，如果<strong>具备了第一条和第二条特征，而不具备第三条特征，则可以考虑用贪心法或动态规划法</strong>。</p>
+<p><strong>第四条特征涉及到分治法的效率</strong>，如果各子问题是不独立的则分治法要做许多不必要的工作，重复地解公共的子问题，此时虽然可用分治法，但<strong>一般用动态规划法较好</strong>。</p>
+<h3 id="分治法的基本步骤"><a href="#分治法的基本步骤" class="headerlink" title="分治法的基本步骤"></a>分治法的基本步骤</h3><p>分治法在每一层递归上都有三个步骤：</p>
+<p>   <strong>分解</strong>：将原问题分解为若干个规模较小，相互独立，与原问题形式相同的子问题；</p>
+<p>   <strong>解决</strong>：若子问题规模较小而容易被解决则直接解，否则递归地解各个子问题</p>
+<p>   <strong>合并</strong>：将各个子问题的解合并为原问题的解。</p>
+<p>它的一般的算法设计模式如下</p>
+<table>
+<thead>
+<tr>
+<th align="center">步骤</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">if |P| ≤ n<del>0</del></td>
+<td align="center">|P| 表示问题P的规模<br/>n<del>0</del>为一阈值，表示当问题P的规模不超过n<del>0</del>时，问题已容易直接解出，不必再继续分解</td>
+</tr>
+<tr>
+<td align="center">then return(ADHOC(P))</td>
+<td align="center">ADHOC(P)是该分治法中的基本子算法，用于直接解小规模的问题P，当P的规模不超过n0时直接用算法ADHOC(P)求解。</td>
+</tr>
+<tr>
+<td align="center">将P分解为较小的子问题 P1 ,P2 ,…,Pk</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">for i←1 to k</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">do yi ← Divide-and-Conquer(Pi) △ 递归解决Pi</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">T ← MERGE(y1,y2,…,yk) △ 合并子问题</td>
+<td align="center">算法MERGE(y1，y2，…，yk)是该分治法中的合并子算法，用于将P的子问题P1 ，P2 ，…，Pk的相应的解y1，y2，…，yk合并为P的解。</td>
+</tr>
+<tr>
+<td align="center">return(T)</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="可使用分治法求解的一些经典问题"><a href="#可使用分治法求解的一些经典问题" class="headerlink" title="可使用分治法求解的一些经典问题"></a>可使用分治法求解的一些经典问题</h3><table>
+<thead>
+<tr>
+<th align="center">二分搜索</th>
+<th align="center">大整数乘法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Strassen矩阵乘法</td>
+<td align="center">棋盘覆盖</td>
+</tr>
+<tr>
+<td align="center">合并排序</td>
+<td align="center">快速排序</td>
+</tr>
+<tr>
+<td align="center">快速排序</td>
+<td align="center">线性时间选择</td>
+</tr>
+<tr>
+<td align="center">最接近点对问题</td>
+<td align="center">循环赛日程表</td>
+</tr>
+<tr>
+<td align="center">循环赛日程表</td>
+<td align="center">汉诺塔</td>
+</tr>
+</tbody></table>
+<h3 id="分治的典型实现：二分搜索法"><a href="#分治的典型实现：二分搜索法" class="headerlink" title="分治的典型实现：二分搜索法"></a>分治的典型实现：二分搜索法</h3><p>又叫做二分查找，折半查找，它是一种效率较高的查找方法。</p>
+<p>线性表为有序表，先确定待查找记录所在的范围，然后逐步缩小范围直至找到或找不到该记录的位置。</p>
+<ul>
+<li><p>先确定中间位置： <img src="https://www.zhihu.com/equation?tex=middle=(left+right)/2" alt="[公式]"> ;</p>
+</li>
+<li><p>将待查找的key值与<code>data[middle].key</code>的值比较，相等则查找成功并返回该位置，否则须确定新得查找区间，继续二分查找，</p>
+</li>
+<li><ul>
+<li>如果<code>data[middle].key</code>大于key，由于data为有序线性表，可知<code>data[middle...right].key</code>均大于key，因此若表中存在关键字等于key的节点，则一定在位置middle左边的子表中。</li>
+<li>反之，<code>data[middle].key</code>小于key，若表中存在关键字等于key的节点，则一定在位置middle右边的子表中，下一次查找对新的区域进行查找。</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用分治思想-递归算法解决例题"><a href="#使用分治思想-递归算法解决例题" class="headerlink" title="使用分治思想+递归算法解决例题"></a>使用分治思想+递归算法解决例题</h3><p>​    对于字符串 s，如果存在某个字符 ch，它的出现次数大于 0 且小于 k，则<strong>任何包含 ch 的子串都不可能满足要求</strong>。也就是说，我们将字符串按照 ch 切分成若干段，则满足要求的最长子串一定出现在某个被切分的段内，而不能跨越一个或多个段。因此，可以考虑分治的方式求解本题</p>
+<p>下面是详细讲解</p>
+<ul>
+<li><p><strong>递归最基本的是记住递归函数的含义（务必牢记函数定义</strong>）：本题的 longestSubstring(s, k) 函数表示的就是题意，即求一个最长的子字符串的长度，该子字符串中每个字符出现的次数都最少为 k。函数入参 s 是表示源字符串；kk 是限制条件，即子字符串中每个字符最少出现的次数；函数返回结果是满足题意的最长子字符串长度。</p>
+</li>
+<li><p><strong>递归的终止条件（能直接写出的最简单 case）</strong>：如果字符串 s 的长度少于 k，那么一定不存在满足题意的子字符串，返回 0；</p>
+</li>
+<li><p><strong>调用递归（重点）</strong>：如果一个字符 c 在 s 中出现的次数少于 k 次，那么 s 中所有的包含 c 的子字符串都不能满足题意。所以，应该在 s 的所有不包含 c 的子字符串中继续寻找结果：把 s 按照 c 分割（分割后每个子串都不包含 c），得到很多子字符串 t；下一步要求 t 作为源字符串的时候，它的最长的满足题意的子字符串长度（到现在为止，我们把大问题分割为了小问题(s → t)）。此时我们发现，恰好已经定义了函数 longestSubstring(s, k) 就是来解决这个问题的！所以直接把 longestSubstring(s, k) 函数拿来用，于是形成了递归。</p>
+</li>
+<li><p><strong>未进入递归时的返回结果</strong>：如果 s 中的每个字符出现的次数都大于 k 次，那么 s 就是我们要求的字符串，直接返回该字符串的长度。</p>
+</li>
+</ul>
+<p>​        总之，通过上面的分析，我们看出了：我们不是为了递归而递归。而是因为我们把大问题拆解成了小问题，恰好有函数可以解决小问题，所以直接用这个函数。由于这个函数正好是本身，所以我们把此现象叫做递归。<strong>小问题是原因，递归是结果</strong>。而递归函数到底怎么一层层展开与终止的，不要用大脑去想，这是计算机干的事。我们只用把递归函数当做一个能解决问题的黑箱就够了，把更多的注意力放在拆解子问题、递归终止条件、递归函数的正确性上来。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">longestSubstring</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> k<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">></span></span> counter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            counter<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> counter<span class="token punctuation">.</span><span class="token function">getOrDefault</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">char</span> c <span class="token operator">:</span> counter<span class="token punctuation">.</span><span class="token function">keySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>counter<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token operator">&lt;</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> t <span class="token operator">:</span> s<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    res <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token function">longestSubstring</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>抛砖引玉</strong>：在分支的过程中可以加适当的剪枝，比如在s: aaabbaa,k: 3中，b 只出现 2 次，它肯定不会出现在合法子串中，要到它的两侧找。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Monster</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://47.101.148.21/2021/cl7fwczz0004v289p5qtegler/">https://47.101.148.21/2021/cl7fwczz0004v289p5qtegler/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://47.101.148.21" target="_blank">我的怪兽猫</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%88%86%E6%B2%BB%E6%B3%95/">分治法</a><a class="post-meta__tags" href="/tags/%E9%80%92%E5%BD%92%E6%80%9D%E6%83%B3/">递归思想</a></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/10.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/cl7fwczyr001q289p82y03401/"><img class="prev-cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/8.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">类的加载过程</div></div></a></div><div class="next-post pull-right"><a href="/2021/cl7fwczyx003z289pb9wta34p/"><img class="next-cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Nacos集成Seata1.4.1环境搭建</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Monster</div><div class="author-info__description">山腰的风景很美，然而我还是想到山顶去看看</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div><a class="button--animated" id="card-info-btn" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1264833435&amp;website=www.oicqzone.com"><i class="iconfont icon-open"></i><span>Link Start</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/MyMonsterCat" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">祝大家新年快乐，虎虎生威~！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%88%86%E6%B2%BB-%E9%80%92%E5%BD%92%E7%AE%80%E5%8C%96%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3"><span class="toc-text">使用分治+递归简化问题求解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BE%8B%E9%A2%98"><span class="toc-text">一、例题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E5%88%86%E6%9E%90"><span class="toc-text">题目分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BD%BF%E7%94%A8%E5%88%86%E6%B2%BB-%E9%80%92%E5%BD%92"><span class="toc-text">二、使用分治 + 递归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E6%B2%BB"><span class="toc-text">什么是分治</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%B2%BB%E9%80%82%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-text">分治适用情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%B2%BB%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="toc-text">分治法的基本步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E4%BD%BF%E7%94%A8%E5%88%86%E6%B2%BB%E6%B3%95%E6%B1%82%E8%A7%A3%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98"><span class="toc-text">可使用分治法求解的一些经典问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%B2%BB%E7%9A%84%E5%85%B8%E5%9E%8B%E5%AE%9E%E7%8E%B0%EF%BC%9A%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E6%B3%95"><span class="toc-text">分治的典型实现：二分搜索法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%88%86%E6%B2%BB%E6%80%9D%E6%83%B3-%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95%E8%A7%A3%E5%86%B3%E4%BE%8B%E9%A2%98"><span class="toc-text">使用分治思想+递归算法解决例题</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwczzm00b3289pczuf2lwo/" title="软件设计师-操作系统"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/image-20220301002332267.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件设计师-操作系统"/></a><div class="content"><a class="title" href="/2022/cl7fwczzm00b3289pczuf2lwo/" title="软件设计师-操作系统">软件设计师-操作系统</a><time datetime="2022-02-28T16:19:16.000Z" title="发表于 2022-03-01 00:19:16">2022-03-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwczyp001i289p7psy3mql/" title="DDD领域驱动设计-4.实践及其他"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-4.实践及其他"/></a><div class="content"><a class="title" href="/2022/cl7fwczyp001i289p7psy3mql/" title="DDD领域驱动设计-4.实践及其他">DDD领域驱动设计-4.实践及其他</a><time datetime="2022-02-28T06:44:12.000Z" title="发表于 2022-02-28 14:44:12">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwczyj000s289pae64fkg8/" title="DDD领域驱动设计-3.分层架构"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-3.分层架构"/></a><div class="content"><a class="title" href="/2022/cl7fwczyj000s289pae64fkg8/" title="DDD领域驱动设计-3.分层架构">DDD领域驱动设计-3.分层架构</a><time datetime="2022-02-28T05:02:52.000Z" title="发表于 2022-02-28 13:02:52">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwczyg000b289pgcz83vb8/" title="DDD领域驱动设计-2.基本概念"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-2.基本概念"/></a><div class="content"><a class="title" href="/2022/cl7fwczyg000b289pgcz83vb8/" title="DDD领域驱动设计-2.基本概念">DDD领域驱动设计-2.基本概念</a><time datetime="2022-02-28T04:32:52.000Z" title="发表于 2022-02-28 12:32:52">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwczyh000h289p72jueu9g/" title="DDD领域驱动设计-1.入门介绍"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-1.入门介绍"/></a><div class="content"><a class="title" href="/2022/cl7fwczyh000h289p72jueu9g/" title="DDD领域驱动设计-1.入门介绍">DDD领域驱动设计-1.入门介绍</a><time datetime="2022-02-28T04:02:52.000Z" title="发表于 2022-02-28 12:02:52">2022-02-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Monster</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43010402000915"><span> 湘公网安备 43010402000915号 </span></a><a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/"><img class="icp-icon" src="/img/icp.png"><span>鲁ICP备2021006500号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'gta1kVza0nbBPTle7TavUngV-gzGzoHsz',
+      appKey: 'jLVBRdBH7kwXKGX1ihnCyXYj',
+      placeholder: '记得留下你的昵称和邮箱，我可以在收到以后快速回复',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '4',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener toc scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-9V4FJV65ZE', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
