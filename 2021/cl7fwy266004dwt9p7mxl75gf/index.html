@@ -1,0 +1,654 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>程序猿常用画图知识及工具 | 我的怪兽猫</title><meta name="keywords" content="UML"><meta name="author" content="Monster"><meta name="copyright" content="Monster"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="跑不掉的，早晚的事！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序猿常用画图知识及工具">
+<meta property="og:url" content="https://47.101.148.21/2021/cl7fwy266004dwt9p7mxl75gf/index.html">
+<meta property="og:site_name" content="我的怪兽猫">
+<meta property="og:description" content="跑不掉的，早晚的事！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-db8567cfd5a24814a33b1ecdf94e14ff_r.jpg?source=1940ef5c">
+<meta property="article:published_time" content="2021-06-28T07:43:52.000Z">
+<meta property="article:modified_time" content="2022-04-16T07:20:56.000Z">
+<meta property="article:author" content="Monster">
+<meta property="article:tag" content="UML">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic2.zhimg.com/v2-db8567cfd5a24814a33b1ecdf94e14ff_r.jpg?source=1940ef5c"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://47.101.148.21/2021/cl7fwy266004dwt9p7mxl75gf/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-9V4FJV65ZE"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-9V4FJV65ZE');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '程序猿常用画图知识及工具',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2022-04-16 15:20:56'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/MyStyle/MyStyle.css" media="defer" onload="this.media='all'"/><link rel="stylesheet" href="/css/MyStyle/tagStyle.css" media="defer" onload="this.media='all'"/><link rel="stylesheet" href="/css/MyStyle/JetBrainsMono.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_2630408_9i65adv8yet.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首  页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-wenzhangguanli"></i><span> 看文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标  签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分  类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 搞学习</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/pdf/"><i class="fa-fw iconfont icon-pdf"></i><span> PDF</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw iconfont icon-movie"></i><span> Movie</span></a></li><li><a class="site-page child" href="/leetcode/"><i class="fa-fw iconfont icon-leetcode"></i><span> 算  法</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-xiuxi"></i><span> 去娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce1"></i><span> 相册</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw iconfont icon-book"></i><span> 书单</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 异世界</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-wogerenziliao"></i><span> 关  于</span></a></div><div class="menus_item"><a class="site-page" href="/love/"><i class="fa-fw iconfont icon-aixin"></i><span> 我  们</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">我的怪兽猫</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首  页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-wenzhangguanli"></i><span> 看文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标  签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分  类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 搞学习</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/pdf/"><i class="fa-fw iconfont icon-pdf"></i><span> PDF</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw iconfont icon-movie"></i><span> Movie</span></a></li><li><a class="site-page child" href="/leetcode/"><i class="fa-fw iconfont icon-leetcode"></i><span> 算  法</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-xiuxi"></i><span> 去娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce1"></i><span> 相册</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw iconfont icon-book"></i><span> 书单</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 异世界</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-wogerenziliao"></i><span> 关  于</span></a></div><div class="menus_item"><a class="site-page" href="/love/"><i class="fa-fw iconfont icon-aixin"></i><span> 我  们</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">程序猿常用画图知识及工具</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-06-28T07:43:52.000Z" title="发表于 2021-06-28 15:43:52">2021-06-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-16T07:20:56.000Z" title="更新于 2022-04-16 15:20:56">2022-04-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/UML/">UML</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="程序猿常用画图知识及工具"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><div class="note info modern"><p>本文参考和转载文章</p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/org/yi-tu-tu-shi">亿图图示官方</a>、<a target="_blank" rel="noopener" href="https://www.zhihu.com/org/processon-51">ProcessOn官方</a>、<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/77d00c4af9ad">程序员需要掌握的几种图</a>、<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/77d00c4af9ad">需要哪些设计图</a>、<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/136128308">画流程图常用的工具</a></p>
+</div>
+
+<blockquote>
+<p>图是一种用来说明的工具，所以只要是你认为能更好的说明你的意图，任何图都是可以的。</p>
+<p>最终要做的是软件而不是图表，不要为了做图而做图，最后本末倒置，毕竟图标的目的是方便沟通</p>
+<p>在绘制任何图形之前，都应该先弄清楚图形的概念、组成元素以及绘制规范</p>
+</blockquote>
+<blockquote>
+<h3 id="一般软件生命周期中需要画图的地方"><a href="#一般软件生命周期中需要画图的地方" class="headerlink" title="一般软件生命周期中需要画图的地方"></a>一般软件生命周期中需要画图的地方</h3><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/HTTPS/%E6%B5%81%E7%A8%8B.jpg"></p>
+<p>业务流程图:做项目之前要搞清楚业务是怎样流转的，不要上来去想要实现什么功能。经过几次开会讨论，找相关领域专家探讨(确认各个环节怎样操作)。</p>
+<p>功能图:一般情况下产品或系统的总功能可分解为若干分功能，各分功能又可进一步分解为若干二级分功能，如此继续，直至各分功能被分解为功能单元为止。这种由分功能或功能单元按照其逻辑关系连成的结构称为功能结构。分功能或功能单元的相互关系可以用图来描述，表达分功能或功能单元相互关系或从属关系的图称为功能结构图。功能图不要有专业术语，比如查询订单，修改订单审核状态等。要换成查看有哪些订单，对订单审核等。</p>
+</blockquote>
+<hr>
+<h1 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>​    流程图=流程+图。</p>
+<blockquote>
+<p>所谓流程，IS09000系列国际标准中将流程定义为一组将输入转化为输出的相互群或相互作用的活动。流程有六个要素构成，分别是流程的输入资源、流程中的若干活动、活动的相互作用、输出结果、顾客、最终流程创造的价值。</p>
+</blockquote>
+<p>一个流程会将这6个要素有序串联起来，而流程图则是承载上述程序的图形载体。</p>
+<p>根据流程图“流动”信息的不同，又可以细分为产品流程图、数据流程图、程序流程图等，比如：</p>
+<ul>
+<li>页面流程图，呈现的是页面跳转顺序；</li>
+<li>数据流程图，用于表达数据的流转。</li>
+</ul>
+<h2 id="符号规范"><a href="#符号规范" class="headerlink" title="符号规范"></a>符号规范</h2><p><strong>流程图中的每个符号都有着特定含义</strong>。</p>
+<p>画流程图的时候如果弄错了，整幅流程图的专业性就会大打折扣。</p>
+<p>面是几个重要且最常用的符号，需要牢记！</p>
+<p><img src="https://pic4.zhimg.com/80/v2-51c2474511d797de0c16b5a3d559470b_720w.jpg" alt="img"></p>
+<h2 id="结构规范"><a href="#结构规范" class="headerlink" title="结构规范"></a>结构规范</h2><p>流程图有三大结构，分别是顺序结构、选择结构和循环结构。</p>
+<p><strong>1）顺序结构</strong></p>
+<p>这种结构最简单，各个步骤是按先后顺序执行的。如图，A、B、C是三个连续的步骤，它们是按顺序执行的，即完成上一个框中指定的操作才能再执行下一个动作。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-ead8d8e97b424fe7da23a30448344139_720w.jpg" alt="img">顺序结构</p>
+<p><strong>2） 选择结构</strong></p>
+<p>选择结构又称分支结构，用于判断给定的条件，根据判断的结果判断某些条件，根据判断的结果来控制程序的流程。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-9491d93ad8c3021f9270069d1c09fe37_720w.jpg" alt="img">选择结构</p>
+<p><strong>3）循环结构</strong></p>
+<p>循环结构又称为重复结构，指在程序中需要反复执行某个功能而设置的一种程序结构。它由循环体中的条件，判断继续执行某个功能还是退出循环。</p>
+<p>根据判断条件，循环结构又可细分为以下两种形式：先判断后执行的循环结构（当型结构），和先执行后判断的循环结构（直到型结构）。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-a3153e0d91ea2900c1e8f09455d93a58_720w.jpg" alt="img"></p>
+<h2 id="路径规范"><a href="#路径规范" class="headerlink" title="路径规范"></a>路径规范</h2><p>除了符号规划、结构规划，绘制流程图过程中还要注意一些约定俗成的路径规划，比如</p>
+<p>1）绘制流程图时，为了提高流程图的逻辑性，应<strong>遵循从左到右、从上到下的顺序排列</strong>。</p>
+<p>2）一个流程从开始符开始，以结束符结束。开始符号只能出现一次，而结束符号可出现多次。若流程足够清晰，可省略开始、结束符号。</p>
+<p>3）同一流程图内，符号大小需要保持一致，同时连接线不能交叉，连接线不能无故弯曲。</p>
+<p>4）流程处理关系为并行关系的，需要将流程放在同一高度。</p>
+<p>5）处理流程须以单一入口和单一出口绘制，<strong>同一路径的指示箭头应只有一个</strong>。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-ea29f330cc7940f9ae59a721719ad319_720w.jpg" alt="img"></p>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p><img src="https://upload-images.jianshu.io/upload_images/6943526-00d600de88c10ddf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/324/format/webp" alt="img"></p>
+<p>​    计算机语言只是一种工具。光学习语言的规则还不够，最重要的是学会针对各种类型的问题，拟定出有效的解决方法和步骤即算法。有了正确而有效的算法，可以利用任何一种计算机高级语言编写程序，使计算机进行工作。因此，设计算法是程序设计的核心。</p>
+<p>​    对同一个问题，可以有不同的解题方法和步骤。</p>
+<p>​    <strong><code>例如，求1+2+3+…+100，可以先进行1+2，再加3，再加4，一直加到100，也可采取100+(1+99)+(2+98)+…+(49+51)+50＝100+50+49×100＝5050。</code></strong></p>
+<p>​    还可以有其它的方法。当然，方法有优劣之分。有的方法只需进行很少的步骤，而有些方法则需要较多的步骤。一般说，希望采用方法简单，运算步骤少的方法。因此，为了有效地进行解题，不仅需要保证算法正确，还要考虑算法的质量，选择合适的算法。</p>
+<p>​    一个计算问题的解决过程通常包含下面几步:</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">a<span class="token punctuation">.</span>确立所需解决的问题以及最后应达到的要求。必须保证在任务一开始就对它有详细而确切的了解，避免模棱两可和含混不清之处。
+
+ b<span class="token punctuation">.</span>分析问题构造模型。在得到一个基本的物理模型后，用数学语言描述它，例如列出解题的数学公式或联立方程式，即建立数学模型。
+
+ c<span class="token punctuation">.</span>选择计算方法。如定积分求值问题，可以用矩形法、梯形法或辛普生法等不同的方法。因此用计算机解题应当先确定用哪一种方法来计算。专门有一门学科“计算方法”，就是研究用什么方法最有效、最近似地实现各种数值计算的，换句话说，计算方法是研究数值计算的近似方法的。
+
+ d<span class="token punctuation">.</span>确定算法和画流程图。在编写程序之前，应当整理好思路，设想好一步一步怎样运算或处理，即为“算法”。把它用框图画出来，用一个框表示要完成的一个或几个步骤，它表示工作的流程，称为流程图。它能使人们思路清楚，减少编写程序中的错误。
+
+ f<span class="token punctuation">.</span>编写程序。
+
+ g<span class="token punctuation">.</span>程序调试，即试算。一个复杂的程序往往不是一次上机就能通过并得到正确的结果的，需要反复试算修改，才得到正确的可供正式运行的程序。
+
+ h<span class="token punctuation">.</span>正式运行得到必要的运算结果。 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>传统流程图</strong></p>
+<p>​    用图表示的算法就是流程图。流程图是用一些图框来表示各种类型的操作，在框内写出各个步骤，然后用带箭头的线把它们连接起来，以表示执行的先后顺序。用图形表示算法，直观形象，易于理解。</p>
+<p>​    美国国家标准化协会ANSI曾规定了一些常用的流程图符号，为世界各国程序工作者普遍采用。最常用的流程图符号见图。</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">a<span class="token punctuation">.</span>处理框（矩形框），表示一般的处理功能。
+
+b<span class="token punctuation">.</span>判断框（菱形框），表示对一个给定的条件进行判断，根据给定的条件是否成立决定如何执行其后的操作。它有一个入口，二个出口。
+
+c<span class="token punctuation">.</span>输入输出框（平行四边形框）。
+
+d<span class="token punctuation">.</span>起止框（圆弧形框），表示流程开始或结束。
+
+f<span class="token punctuation">.</span>连接点（圆圈），用于将画在不同地方的流程线连接起来。如图中有两个以<span class="token number">1</span>标志的连接点<span class="token punctuation">(</span>在连接点圈中写上“l”<span class="token punctuation">)</span>则表示这两个点是连接在一起的，相当于一个点一样。用连接点，可以避免流程线的交叉或过长，使流程图清晰。
+
+g<span class="token punctuation">.</span>流程线（指向线），表示流程的路径和方向。
+
+h<span class="token punctuation">.</span>注释框<span class="token punctuation">,</span> 是为了对流程图中某些框的操作做必要的补充说明，以帮助阅读流程图的人更好地理解流程图的作用。它不是流程图中必要的部分，不反映流程和操作。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/6943526-38b07850d8d2fbce.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/171/format/webp" alt="img"></p>
+<p>​    流程图不仅可以指导编写程序，而且可以在调试程序中用来检查程序的正确性。如果框图是正确的而结果不对，则按照框图逐步检查程序是很容易发现其错误的。流程图还能作为程序说明书的一部分提供给别人，以便帮助别人理解你编写程序的思路和结构。</p>
+<h1 id="泳道图"><a href="#泳道图" class="headerlink" title="泳道图"></a>泳道图</h1><p><strong>泳道图也叫跨职能流程图</strong>，旨在展示工作流中每个步骤涉及的流程和职能部门。泳道流程图是一种特殊的图表，展示出一个商业过程之间的关系，并展示为那个过程负责的功能板块。泳道流程图专注于价值活动之间的逻辑关系，更好地展示每个价值活动的责任。</p>
+<p><strong>泳道图绘制的场景非常清晰：</strong>流程图是描述一个事件过程的步骤，当这个过程涉及许多不同人、不同部门或不同功能区域时，很难跟踪每个步骤的负责人。解决此问题的有效方法是用泳道图把流程图分栏，这样能清晰地了解任务转交的流程。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-1c8853ec6328daa3a14ef9742d451c4a_720w.jpg" alt="img"></p>
+<p>这是一个部门维度的泳道图。该跨职能流程图是展示了商城运营流程和负责各个子流程的功能单位（部门）之间的关系，一栏代表一个职能单位。代表流程中步骤的形状放在负责这些步骤的职能单位相应的一栏中。</p>
+<p>一般情况下，可以通过3个维度来确定泳道图类型：</p>
+<p><strong>部门维度：</strong>通过部门或者责任来区分，明确每个部门/人负责完成的任务环节。</p>
+<p><strong>阶段维度：</strong>通过任务阶段来区分。</p>
+<p><strong>活动维度：</strong>在不同的阶段，每一个网格中的活动都应该有相对应的部门来实施。</p>
+<p><img src="https://pic1.zhimg.com/v2-3b35c86c629a20dd79623207031e2a34.jpg"></p>
+<hr>
+<h1 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h1><blockquote>
+<p>​        统一建模语言（UML）是一种开放的方法，用于说明、可视化、构建和编写一个正在开发的、面向对象的、软件密集系统的制品的开放方法。UML展现了一系列最佳工程实践，这些最佳实践在对大规模，复杂系统进行建模方面，特别是在软件架构层次已经被验证有效。</p>
+</blockquote>
+<p><img src="https://pic2.zhimg.com/v2-db8567cfd5a24814a33b1ecdf94e14ff_r.jpg?source=1940ef5c"></p>
+<h2 id="用例图"><a href="#用例图" class="headerlink" title="用例图"></a>用例图</h2><p>用例图是编写需求说明时经常用到的需求表达方式，用于向开发、测试同事说明需求中用户与系统功能单元之间的关系。</p>
+<p>用例图的三大组成元素：<strong>参与者</strong>、<strong>用例</strong>、<strong>参与者与用例之间的关系。</strong></p>
+<blockquote>
+<p>参与者：不是特指人，是指系统以外的，在使用系统或与系统交互中所扮演的角色。因此参与者可以是人，可以是事物，也可以是时间或其他系统等等。</p>
+<p><strong>用例：</strong>是对包括变量在内的一组动作序列的描述，系统执行这些动作，并产生传递特定参与者的价值的可观察结果。</p>
+<p>关系：参与者与用例之间的关系主要包括关联、归纳（泛化）、包含、拓展和依赖。</p>
+</blockquote>
+<p>接下来将重点讲第三部分：参与者与用例之间的关系，主要分为4中：<strong>关联、归纳（泛化）、包含、拓展和依赖</strong>。</p>
+<h3 id="1）关联关系"><a href="#1）关联关系" class="headerlink" title="1）关联关系"></a>1）关联关系</h3><p><strong>关系说明：</strong>表示参与者与用例之间的关系</p>
+<p><strong>表示方法：</strong>带箭头的实线，箭头指向用例。</p>
+<p><strong>举例说明：</strong>用户登录系统</p>
+<p><img src="https://pic2.zhimg.com/80/v2-830ec9e117f74c4d1a9dc1776bead9b2_720w.jpg?source=1940ef5c" alt="img"></p>
+<h3 id="2）归纳（泛化）关系"><a href="#2）归纳（泛化）关系" class="headerlink" title="2）归纳（泛化）关系"></a>2）归纳（泛化）关系</h3><p><strong>关系说明：</strong>表示参与者与参与者之间、用例与用例之间的关系。一个用例可以被特别列举为一个或多个子用例，这被称为用例泛化。</p>
+<p><strong>表示方法：</strong>带空心箭头的实线，箭头指向被泛化（被继承）的用例，即基础用例/父用例。<em>（注意：泛化关系的箭头不是指向被泛化，而是指向被继承。泛化和继承是不同的方向。泛化是从下到上的抽象过程，继承是从上到下，从一般到特殊的过程。）</em></p>
+<p><strong>举例说明：</strong>VIP会员和普通用户，归纳为用户；账号登录与微信登录，也可归纳为登录系统。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-27fcca6ef7b16bdcf2cdf676d9adf7a3_720w.jpg?source=1940ef5c" alt="img"></p>
+<h3 id="3）包含关系"><a href="#3）包含关系" class="headerlink" title="3）包含关系"></a>3）包含关系</h3><p><strong>关系说明：</strong>表示用例与用例之间的关系，其中一个用例（基础用例）的行为包含了另一个用例（包含用例）的行为。</p>
+<p><strong>表示方法：</strong>虚线箭头+&lt;<include>&gt;字样，箭头指向被包含的用例</p>
+<p><strong>举例说明：</strong>用户在账号登录过程中，包括输入账号、输入密码、确认登录等操作</p>
+<p><img src="https://pic1.zhimg.com/80/v2-d5d0914418cbeb28d987f7f2673febd2_720w.jpg?source=1940ef5c" alt="img"></p>
+<h3 id="4）拓展关系"><a href="#4）拓展关系" class="headerlink" title="4）拓展关系"></a>4）拓展关系</h3><p>关系说明：表示用例与用例之间的关系；用于拓展用例对基础用例的增强；<strong>拓展用例是在特定条件出现时，才会被执行的用例。</strong></p>
+<p>表示方法：虚线箭头+&lt;<extend>&gt;字样，箭头指向被扩展的用例（即基础用例）</p>
+<p>举例说明：用户在登录过程中忘记了密码</p>
+<p><img src="https://pic2.zhimg.com/80/v2-e05e2ae3afe5ffea1836352c547f3c13_720w.jpg?source=1940ef5c" alt="img"></p>
+<h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><p>UML类图，UML中的一种重要图形，是在面向对象语言用中用来表示一个类。</p>
+<p>如下图所示（它由两部分组成，类，类之间的关系）：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-61af74fe4b611c85c740cececb18e4ae_720w.jpg" alt="img"></p>
+<h3 id="1）类"><a href="#1）类" class="headerlink" title="1）类"></a>1）类</h3><p><strong>类是具有相似结构、行为和关系的一组对象的描述符，是面向对象系统中最重要的构造块。</strong></p>
+<p>如下图所示，就表示一个类：</p>
+<p><img src="https://pic1.zhimg.com/80/v2-c589911333aded1c962e2f0958e5041c_720w.jpg" alt="img"></p>
+<p>三个格子从上至下分别表示：</p>
+<ul>
+<li>类名称（如果是接口，就使用斜体表示）</li>
+<li>类的特性（一般是类的字段和属性，可以没有）</li>
+<li>类的操作（一般是类的方法或行为）</li>
+</ul>
+<p>它们前边的符号有以下几类：</p>
+<ul>
+<li>“+”表示public</li>
+<li>“-”表示private</li>
+<li>“#”表示protected</li>
+</ul>
+<h3 id="2）类的关系"><a href="#2）类的关系" class="headerlink" title="2）类的关系"></a>2）类的关系</h3><p><strong>除了类，类图中还有一个重要元素，即类之间的关系。</strong></p>
+<p>根据类的关系的不同，具体可分为6种：</p>
+<p><strong>（1）依赖关系</strong>（用虚箭线表示）</p>
+<p>所谓依赖关系，就是构造这个类的时候，需要依赖其他的类，比如：动物依赖水和氧气。如下图所以：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-e5af6625d202f3220b7333692dabad42_720w.jpg" alt="img"></p>
+<p><strong>（2）继承、泛化关系</strong>（用带空心三角形的实线表示）</p>
+<p>继承（泛化）关系，它指定了子类如何特化父类的所有特征和行为。例如：鸟是动物的一种，企鹅、鸭、大雁是鸟的一种。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-d25ab9c2f2e8064317cd090b751f6702_720w.jpg" alt="img"></p>
+<p><strong>（3）实线关系</strong>（用带空心三角形的虚线表示）</p>
+<p>一种类与接口的关系，表示类是接口所有特征和行为的实现。它有两种表示方法：</p>
+<p>第一种，矩形表示法，</p>
+<ul>
+<li>顶端有&lt;<interface>&gt;</li>
+<li>第一行：接口名称</li>
+<li>第二行：接口方法</li>
+</ul>
+<p><img src="https://pic4.zhimg.com/80/v2-88addbc8cbfe20bb0c038bee5f151617_720w.jpg" alt="img"></p>
+<p>第二种，棒棒糖表示法</p>
+<ul>
+<li>圆圈旁为接口名称</li>
+<li>接口方法在实现类中出现</li>
+</ul>
+<p><img src="https://pic3.zhimg.com/80/v2-40c356695078c5da3ea6f0b6e5b1ea7e_720w.jpg" alt="img"></p>
+<p><strong>（4）关联关系</strong>（用实箭线表示）</p>
+<p>所谓关联关系，就是这个类有一个属性是其他类。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-cdb23e214bf7320b7a563c7e08ace379_720w.jpg" alt="img"></p>
+<p><strong>（5）聚合关系</strong>（用带空心菱形的实线表示）</p>
+<p>聚合关系是关联关系的一种，是强的关联关系 ；</p>
+<p>特点： 部分对象的生命周期并不由整体对象来管理。也就是说，当整体对象已经不存在的时候，部分的对象还是可能继续存在的。比如：一只大雁脱离了雁群，依然是可以继续存活的。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-60d6df1daf28778e9c82e4b097a453a6_720w.jpg" alt="img"></p>
+<p><strong>（6）组合关系</strong>（用带实心菱形的实线表示）</p>
+<p>组合关系同样是关联关系的一种，是比聚合关系还要强的关系。</p>
+<p>特点：在组合中，部分与整体生命期一致，部分与组合同时创建并同时消亡 。比如：鸟与翅膀的关系。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-0b9bf5c1582e824c61741a99fff0f915_720w.jpg" alt="img"></p>
+<h2 id="对象图"><a href="#对象图" class="headerlink" title="对象图"></a>对象图</h2><h3 id="1）对象图概念"><a href="#1）对象图概念" class="headerlink" title="1）对象图概念"></a>1）对象图概念</h3><p>对象图是表示在某一时刻一组对象以及它们之间关系的图形。</p>
+<p>对于复杂的数据结构，有时候很难对其进行抽象成类表达之间的关系，一般就会使用对象图。</p>
+<p>说到对象图，就不得不提到UML的另一种图形——类图，两者几乎使用一套完全相同的标识。不同在于对象图显示类的多个对象实例，而不是实际的类。一个对象图是类图的一个实例。由于对象存在生命周期，因此对象图只能在系统某一时间段存在（这一点从定义上也不难看出）。</p>
+<h3 id="类图和对象图的关系及异同"><a href="#类图和对象图的关系及异同" class="headerlink" title="类图和对象图的关系及异同"></a>类图和对象图的关系及异同</h3><blockquote>
+<p>两者的关系：对象图可以看做是类图的实例，用来表达各个对象在某一时刻的状态。</p>
+<p>两者的异同：</p>
+<p>​    <strong>类图</strong>：用于描述系统中所包含的类以及它们之间的相互关系。</p>
+<p>​    <strong>对象图</strong>：用于描述某一时刻的一组对象及它们之间的关系。</p>
+<p>​    <strong>主要表现为两者建模元素的异同</strong></p>
+<p><img src="https://pic3.zhimg.com/80/v2-75055f4796ac722ae6f73d8729278f4e_720w.jpg" alt="img"></p>
+</blockquote>
+<h3 id="2）对象图的组成元素"><a href="#2）对象图的组成元素" class="headerlink" title="2）对象图的组成元素"></a>2）对象图的组成元素</h3><p>对象图中的建模元素主要有对象和链。</p>
+<ul>
+<li><strong>对象</strong></li>
+</ul>
+<p>对象是类的实例，是一个封装了状态和行为的实体。对象通过其类型、名称和状态区别于其他对象而存在。</p>
+<blockquote>
+<p>对象名：在矩形框的顶端显示。<br>类型：具体的类目<br>状态：由对象的所有属性以及运行时的当前值组成。<br>表示法：在对象名后跟一个冒号加上类型名，并且使用下划线与类进行区分。</p>
+</blockquote>
+<p><img src="https://pic4.zhimg.com/80/v2-5781fd061e72edc029d85271baf23c43_720w.jpg" alt="img"></p>
+<ul>
+<li><strong>链</strong></li>
+</ul>
+<p>链是类之间的关联关系的实例，是两个或多个对象之间的独立连接。因此，链在对象图中的作用类似于关联关系在类图中的作用。</p>
+<p>之前专栏对UML类图的4种关联关系进行过详细拆解，这里同样不再赘述，有需要的可以移步查看▼</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/267298708">亿图图示：干货！3分钟掌握UML类图zhuanlan.zhihu.com<img src="https://pic3.zhimg.com/v2-e5af6625d202f3220b7333692dabad42_180x120.jpg" alt="图标"></a></p>
+<p>在对象图中，链同样使用一根实线段来表示。</p>
+<p>链主要用来导航。链一端的一个对象可以得到另一位置上的一个或一组对象，然后向其发送消息。</p>
+<h3 id="3）对象图实例"><a href="#3）对象图实例" class="headerlink" title="3）对象图实例"></a>3）对象图实例</h3><p><img src="https://pic2.zhimg.com/80/v2-abd1c4281fd9351d7149c5cf1971cd61_720w.jpg" alt="img"></p>
+<h3 id="4）对象图的建模过程"><a href="#4）对象图的建模过程" class="headerlink" title="4）对象图的建模过程"></a>4）对象图的建模过程</h3><p>对象图的建模过程如下（以亿图图示绘制为例）：</p>
+<p><strong>1）确定好对象及对象状态，可以参照相应的类图</strong>；</p>
+<p>打开亿图图示，依次选择“新建&gt;软件&gt;UML图&gt;+”，新建一张空白画布，画布左侧会自动出现绘制UML所需的符号，选择合适的对象符号，然后拖拽至画布上即可；</p>
+<p><img src="https://pic2.zhimg.com/80/v2-4b146341f45a5bd8d0c380006c817bc1_720w.jpg" alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-49284e7ea5d9b6a8a47a2f8609b757e1_720w.jpg" alt="img"></p>
+<p><strong>2）建立链（即确定类间的关系），如依赖、泛化、关联和实现</strong>；</p>
+<p>其实就是连线，选中其中一个对象图形，其边框上会显示蓝边的空心圆，确定连接点后则会变成红色实心圆点，连接起来非常方便。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-6014a163dedfb7098bafc3c66c7f1398_720w.jpg" alt="img"></p>
+<p>3）针对交互在某特定时刻各对象的状态，使用对象图为这些对象建模；</p>
+<p>4）建模时，系统分析师要根据建模的目标，绘制对象的关键状态和关键对象之间的连接关系。</p>
+<h2 id="包图"><a href="#包图" class="headerlink" title="包图"></a>包图</h2><p>包图通常用于描述系统的逻辑架构——层、子系统、包等。层可以建模为UML包。UML包用一大一小两个矩形组合而成。如果内部显示了其成员，则包名称标在上面的小矩形内，否则可以标在包内。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-169d56a94213f86426c50d564f1e7ff3_720w.jpg?source=1940ef5c" alt="img"></p>
+<p>包拥有的元素<strong>：类、接口、组件、节点、协作、用例、图以及其他包。</strong>包的可见性用来控制包外界的元素对包内元素的可访问权限。这种可见性它分为3种，即公有访问、保护访问和私有访问。</p>
+<p>包之间可以有两种关系：<strong>依赖、泛化</strong>。</p>
+<h2 id="部署图"><a href="#部署图" class="headerlink" title="部署图"></a>部署图</h2><p>​    部署图是用来显示系统中软件和硬件的物理架构。使用部署图不仅可以显示<strong>运行时系统的结构</strong>，还能够传达构成应用程序的硬件和软件元素的配置和部署方式。</p>
+<p>​    一个系统模型只有一个部署图，它通常用来帮助理解分布式系统。</p>
+<h3 id="1）节点（Node）-amp-节点实例（Node-Instance）"><a href="#1）节点（Node）-amp-节点实例（Node-Instance）" class="headerlink" title="1）节点（Node）&amp; 节点实例（Node Instance）"></a>1）节点（Node）&amp; 节点实例（Node Instance）</h3><p>节点是存在与运行时的代表计算机资源的物理元素，可以是硬件也可以是运行其上的软件系统，比如64主机、Windows server 2008操作系统、防火墙等。</p>
+<p>一般用立方体表示，如下图：</p>
+<p><img src="https://pic1.zhimg.com/80/v2-b6c612c1423ad512edf5271a049468cc_720w.jpg" alt="img"></p>
+<p><strong>注</strong>：处理器是带阴影的立方体，设备是不带阴影的立方体</p>
+<p>区别于节点，节点实例的名称会有下划线，并且节点类型前会有冒号（注：冒号前面可以有示例名称也可以没有示例名称），如下图：</p>
+<p><img src="https://pic1.zhimg.com/80/v2-43b7f8465326c05f7b7b7155c16bf65c_720w.jpg" alt="img"></p>
+<h3 id="2）构件（Artifact）"><a href="#2）构件（Artifact）" class="headerlink" title="2）构件（Artifact）"></a>2）构件（Artifact）</h3><p>构件是软件开发过程中的产物，包括过程模型（比如用例图、设计图等等）、源代码、可执行程序、设计文档、测试报告、需求原型、用户手册等等。</p>
+<p>构件表示如下，带有关键字«artifact»和文档图标：</p>
+<p><img src="https://pic2.zhimg.com/80/v2-dbe0f13718901d0f42f4b2d3628fa569_720w.jpg" alt="img"></p>
+<h3 id="3）连接（Association）"><a href="#3）连接（Association）" class="headerlink" title="3）连接（Association）"></a>3）连接（Association）</h3><p>节点之间的连线表示系统之间进行交互的通信路径，这个通信路径称为连接。如下图所示，连接中可以标注上网络协议：</p>
+<p><img src="https://pic1.zhimg.com/80/v2-d31e40e4f8b3ea220badf1b5cacf1e3c_720w.jpg" alt="img"></p>
+<h3 id="4）部署图实例"><a href="#4）部署图实例" class="headerlink" title="4）部署图实例"></a>4）部署图实例</h3><p><img src="https://pic1.zhimg.com/80/v2-abcfde046fb0e50bc65283ae1f0638e0_720w.jpg" alt="img"></p>
+<p>​    部署图的组成元素：<strong>结点、构件</strong>（因此部署图也经常和构件图一起使用）、<strong>接口、连接</strong>。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-fa5a0d8f20e6150cf8e06b65ef01215e_720w.jpg?source=1940ef5c" alt="img"></p>
+<h2 id="顺序图"><a href="#顺序图" class="headerlink" title="顺序图"></a>顺序图</h2><p>顺序图，又名序列图、时序图。用于描述对象之间的传递消息的时间顺序（包括发送消息、接收消息、处理消息、返回消息等）。</p>
+<p>顺序图的组成元素：<strong>对象、生命线、消息</strong>，其中消息又分为<strong>同步消息、异步消息、返回消息、自关联消息</strong>。</p>
+<h3 id="1）-什么是时序图？"><a href="#1）-什么是时序图？" class="headerlink" title="1） 什么是时序图？"></a>1） 什么是时序图？</h3><p>时序图是UML交互图中的一类，又名序列图、顺序图。</p>
+<p>用于描述对象之间的传递消息的时间顺序（包括发送消息、接收消息、处理消息、返回消息等）。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-9a624a7fec6e682647916efb8170d179_720w.jpg" alt="img"></p>
+<h3 id="2）-时序图的组成元素"><a href="#2）-时序图的组成元素" class="headerlink" title="2） 时序图的组成元素"></a>2） 时序图的组成元素</h3><p><strong>1）对象</strong></p>
+<p>对象代表时序图中的对象在交互中所扮演的角色，一般使用矩形表示。</p>
+<p>如果对象位于时序图的顶部，说明在交互开始时对象就已经存在了。如果对象的位置在中间部分，说明对象是在交互的过程中被创建的。<strong>当一个对象被删除或自我删除时，在其生命线</strong>（生命线详见下方）<strong>终止点处放置 “ X”标识</strong>。</p>
+<p><strong>2）生命线</strong></p>
+<p>生命线代表时序图中的对象在一段时期内的存在。时序图中每个对象底部中心都有一条垂直的虚线，这就是对象的生命线。</p>
+<p>对象间的消息存在于两条虚线间。</p>
+<p><strong>3）消息</strong></p>
+<p>两个对象之间的单路通信，从发送方指向接收方。</p>
+<p>消息的传递一般有以下几种方式：</p>
+<p><strong>同步消息</strong>：消息的发送者把控制传递给消息的接收者，然后停止活动，等待消息的接收者放弃或者返回控制。</p>
+<p><strong>注意</strong>：发送人需要等待消息的响应。带实心箭头的实线表示</p>
+<p><img src="https://pic2.zhimg.com/80/v2-93176f58fffa870e3414f41283accd85_720w.jpg" alt="img"></p>
+<p><strong>异步消息</strong>：消息发送者通过消息把信号传递给消息的接收者，然后继续自己的活动，不等待接受者返回消息或者控制。</p>
+<p><strong>注意</strong>：发送人不需要等待消息的响应。带线型箭头的实线表示</p>
+<p><img src="https://pic2.zhimg.com/80/v2-f0b7a486257de7d9bdb57694d7de98b1_720w.jpg" alt="img"></p>
+<p><strong>返回消息</strong>：返回消息表示从过程调用返回</p>
+<p>带线型箭头的虚线表示。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-44f13b2d78dfd65390fecd5d48ef4122_720w.jpg" alt="img"></p>
+<p><strong>自关联消息</strong>： 自身调用自身的方法，即自我调用的同步消息</p>
+<p><img src="https://pic1.zhimg.com/80/v2-ec36050f8d48b116dfa3799b763cfc38_720w.jpg" alt="img"></p>
+<h3 id="3）-如何绘制时序图？"><a href="#3）-如何绘制时序图？" class="headerlink" title="3） 如何绘制时序图？"></a>3） 如何绘制时序图？</h3><p>时序图绘制具体分为以下5步：</p>
+<ol>
+<li>确定交互过程的上下文；</li>
+<li>识别参与过程的交互<strong>对象</strong>；</li>
+<li>为每个对象设置<strong>生命线</strong>；</li>
+<li>从初始<strong>消息</strong>开始，依次画出随后消息；</li>
+<li>考虑消息的嵌套，标示消息发生时的时间点。</li>
+</ol>
+<h3 id="流程图、顺序图、状态图他们三者分别解决什么样的问题？"><a href="#流程图、顺序图、状态图他们三者分别解决什么样的问题？" class="headerlink" title="流程图、顺序图、状态图他们三者分别解决什么样的问题？"></a>流程图、顺序图、状态图他们三者分别解决什么样的问题？</h3><blockquote>
+<p><strong>流程图</strong>：用于表示完成某件事情中的<strong>各个活动过程</strong>，其中最重要的部分是“处理 process”单元；</p>
+<p><strong>顺序图</strong>：用于表示程序执行时<strong>各个对象的交互过程</strong>（这些对象会按调用时间顺序排序）；</p>
+<p><strong>状态图</strong>：描述一个特定对象的所有可能状态，以及由于各种事件的发生而引起的状态之间的转移，其最主要的就是程序目前的状态，每一个状态总结记录程序由开始到目前所有接到的输入。</p>
+<p>这么描述可能还不够清晰，下面我将从流程图VS顺序图，以及流程图VS状态图，对这三者的优势和局限性作进一步解读：</p>
+<h2 id="流程图-VS-顺序图"><a href="#流程图-VS-顺序图" class="headerlink" title="流程图 VS 顺序图"></a>流程图 VS 顺序图</h2><p>这是push流程的一张顺序图：</p>
+<p><img src="https://pic1.zhimg.com/80/v2-a6a4712a34ae76dcfa0c685dc33062a0_720w.jpg?source=1940ef5c" alt="img"></p>
+<p>它直观地反应了push程序执行的过程，各个对象之间的调用顺序是怎样的一目了然。</p>
+<p>这还属于比较简单的顺序图。如果是下面这类复杂的，甚至一个方法里面有很多分支语句的，那用顺序图肯定是很不好画了。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-465a17fa69037559d9cc1541dab6fa16_720w.jpg?source=1940ef5c" alt="img"></p>
+<p>因此，一般情况下分析程序中的方法用流程图更好，它可以很好的反应各种复杂的逻辑。</p>
+<h2 id="流程图-VS-状态图"><a href="#流程图-VS-状态图" class="headerlink" title="流程图 VS 状态图"></a>流程图 VS 状态图</h2><p>这是表示电梯运行状态的一张状态图：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-9fd6ffffca375eec2cca17cff74004a2_720w.jpg?source=1940ef5c" alt="img">状态图：电梯运行的三种状态</p>
+<p>如果用流程图来表示上述状态图，就需要做的处理单元比较多，这种情况下状态图明显在结构上要比流程图要更简单。</p>
+<p>流程图和状态图的差别在于，<strong>流程图更在意动作是如何完成的，状态图更重视动作的完成，相较不在意是哪一个程序完成的</strong>。</p>
+<p>因此，当状态图中某一个状态下少考虑了哪一个输入事件，我们可以很快地检查出来，但如果在流程图上，我们就无法分辨了。</p>
+<p>因此，<strong>状态图比较适合对象导向的程序，流程图则比较适合描述程序导向或是数据处理的程序</strong>。</p>
+</blockquote>
+<h2 id="通信图-协作图"><a href="#通信图-协作图" class="headerlink" title="通信图/协作图"></a>通信图/协作图</h2><p>通信图描述的是对象和对象之间的调用关系，体现的是一种组织关系。</p>
+<p>通信图组成元素：<strong>对象、链接、消息</strong>。</p>
+<p>通信图和时序图有点类似。但时序图着重于时间顺序，而通信图则关注的是对象之间的组织关系，通信图中的时间顺序可以从消息序号中获得。在语义上这两个图是等价的可以互相转换而不会丢失信息。</p>
+<p>如果强调时间和顺序，则使用序列图；如果强调上下级关系，则选择协作图；这两种图合称为交互图</p>
+<h2 id="状态机图"><a href="#状态机图" class="headerlink" title="状态机图"></a>状态机图</h2><p>状态机图描述一个对象在其生命周期中的各种状态以及状态的转换。</p>
+<p>状态机主要由<strong>状态、转换、事件、动作、活动</strong>5部分组成。</p>
+<blockquote>
+<p>顺序图、通信图：描述<strong>多个对象</strong>间的交互。<br>状态机图：描述<strong>单个对象</strong>的状态及引起状态变化的原因。</p>
+</blockquote>
+<p>用一个简化的图来表示三者的差别就是：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-880cef6fd8f39bf4591c17d5fe44b815_720w.jpg?source=1940ef5c" alt="img"></p>
+<h2 id="活动图"><a href="#活动图" class="headerlink" title="活动图"></a>活动图</h2><p>活动图描述活动的顺序，展现从一个活动到另一个活动的控制流，它本质上是一种流程图。</p>
+<p>组成元素：<strong>起点、终点、活动名称、判断条件、分支与合并、接收信号、发送信号、泳道</strong>（其实和流程图很相像）</p>
+<hr>
+<h1 id="E-R图"><a href="#E-R图" class="headerlink" title="E-R图"></a>E-R图</h1><h2 id="什么是E-R图？"><a href="#什么是E-R图？" class="headerlink" title="什么是E-R图？"></a>什么是E-R图？</h2><p>E-R图又称实体关系图，是一种提供了实体，属性和联系的方法，用来描述现实世界的概念模型。通俗点讲就是，当我们理解了实际问题的需求之后，需要用一种方法来表示这种需求，概念模型就是用来描述这种需求。</p>
+<p>比如学生生活中的校园卡系统数据库、公交卡系统数据库等等，都离不来实体关系图。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-aa5b23c846a00489f578c83a32394a88_720w.jpg" alt="img"></p>
+<ul>
+<li><strong>E-R图中的基本元素（以上面的学生饭卡E-R图为例）：</strong></li>
+</ul>
+<p><strong>① 实体</strong></p>
+<p>​    实际问题中客观存在的并且可以相互区别的事物称为实体。实体是现实世界中的对象，可以具体到人，事，物。比如：上图中的饭卡、学生、办公室、食堂、超市。</p>
+<p><strong>② 属性</strong></p>
+<p>​    实体所具有的某一个特性称为属性，在E-R图中属性用来描述实体。比如上图中的学生，可以用“姓名”、“院系”、“班级”、“手机号”进行属性描述。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-8826929ae43cabf4f2525cc9392d719a_720w.jpg" alt="img">属性</p>
+<p><strong>③ 实体集</strong></p>
+<p>​    具有相同属性的实体的集合称为实体集。例如：全体学生就是一个实体集，（983573，李刚，男，2000/12/12）是学生实体集中的一个实体。</p>
+<p><strong>④ 键</strong></p>
+<p>​    在描述实体集的所有属性中，可以唯一标识每个实体的属性称为键。键也是属于实体的属性，作为键的属性取值必须唯一且不能“空置”。比如：不重复的学生号，就可以作为学生的“键”。</p>
+<p><strong>⑤ 实体型</strong></p>
+<p>​    具有相同的特征和性质的实体一定有相同的属性，用实体名及其属性名集合来抽象和刻画同类实体称为实体型，其表示格式为：实体名（属性1，属性2，……）</p>
+<p><strong>⑥ 联系</strong></p>
+<p>​    世界上任何事物都不是孤立存在的，事物内部和事物之间都有联系的，实体之间的联系通常有3种类型：一对一联系，一对多联系，多对多联系。</p>
+<h2 id="E-R图的绘图规范"><a href="#E-R图的绘图规范" class="headerlink" title="E-R图的绘图规范"></a>E-R图的绘图规范</h2><p>在ER图中有如下四个成分：</p>
+<p><strong>① 矩形框：</strong>表示实体，在框中记入实体名。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-70fc3732982cdc6b3ce6d0f0c26f066a_720w.jpg" alt="img"></p>
+<p><strong>② 菱形框：</strong>表示联系，在框中记入联系名。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-cbd03d00b0af1f8dcaab4c3996fd4226_720w.jpg" alt="img"></p>
+<p><strong>③ 椭圆形框</strong>：表示实体或联系的属性，将属性名记入框中。对于主属性名，则在其名称下划一下划线。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-c21280847e6c651a9ecf4fd2df867c13_720w.jpg" alt="img"></p>
+<p><strong>④ 连线：</strong>实体与属性之间；实体与联系之间；联系与属性之间用直线相连，并在直线上标注联系的类型。（对于一对一联系，要在两个实体连线方向各写1； 对于一对多联系，要在一的一方写1，多的一方写N；对于多对多关系，则要在两个实体连线方向各写N，M。)</p>
+<p><img src="https://pic3.zhimg.com/80/v2-ecea8319cff84dc92aa05ad8b287b73a_720w.jpg" alt="img"></p>
+<h2 id="E-R图的具体绘制流程"><a href="#E-R图的具体绘制流程" class="headerlink" title="E-R图的具体绘制流程"></a>E-R图的具体绘制流程</h2><p>前面了解完E-R图的定义、组成元素以及绘制规范，我们这部分具体介绍E-R图的绘制步骤，大致可以分为以下5步：</p>
+<ul>
+<li>确定所有的实体集合；</li>
+<li>选择实体集应包含的属性；</li>
+<li>确定实体集之间的联系；</li>
+<li>确定实体集的关键字，用下划线在属性上表明关键字的属性组合；</li>
+<li>确定联系的类型，在用线将表示联系的菱形框联系到实体集时，在线旁注明是1或n(多）来表示联系的类型。</li>
+</ul>
+<hr>
+<h1 id="一些推荐"><a href="#一些推荐" class="headerlink" title="一些推荐"></a>一些推荐</h1><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/274117517/answer/1953912666">一些精彩的流程图</a></p>
+<hr>
+<h1 id="画图工具"><a href="#画图工具" class="headerlink" title="画图工具"></a>画图工具</h1><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">特点</th>
+<th align="center">安装</th>
+<th align="center">收费</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Visio</td>
+<td align="center">office系列，可以和word办公软件结合起来使用，只支持Windows</td>
+<td align="center">是</td>
+<td align="center">是，标准版永久2638，1设备</td>
+</tr>
+<tr>
+<td align="center">XMind</td>
+<td align="center">基于java开发，安装包小，多平台支持</td>
+<td align="center">是</td>
+<td align="center">是，384一年，5设备</td>
+</tr>
+<tr>
+<td align="center">MindManager</td>
+<td align="center">同Office无缝集成，多平台支持，安装包大</td>
+<td align="center">是</td>
+<td align="center">是，1081一年，多设备</td>
+</tr>
+<tr>
+<td align="center">ProcessOn</td>
+<td align="center">方便快捷，优雅强大，文件备份，模板丰富，免费账号只能9个文件</td>
+<td align="center">否</td>
+<td align="center">是，259元 / 人 / 年</td>
+</tr>
+<tr>
+<td align="center">draw.io</td>
+<td align="center">支持网页版，持续更新</td>
+<td align="center">是</td>
+<td align="center">永久免费</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong><del>推荐使用draw.io</del></strong></p>
+<div class="btn-center">
+<a class="btn-beautify button--animated outline orange larger" target="_blank" rel="noopener" href="https://github.com/jgraph/drawio-desktop/releases/tag/v14.6.13" 
+  title="客户端下载"><i class="far fa-hand-point-right fa-fw"></i><span>客户端下载</span></a>
+<a class="btn-beautify button--animated outline green larger" target="_blank" rel="noopener" href="https://app.diagrams.net/" 
+  title="Web端在线编辑"><i class="far fa-hand-point-right fa-fw"></i><span>Web端在线编辑</span></a>
+</div>
+</blockquote>
+<blockquote>
+<p>推荐使用ProcessOn，在线画图快捷方便真的香！！！</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Monster</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://47.101.148.21/2021/cl7fwy266004dwt9p7mxl75gf/">https://47.101.148.21/2021/cl7fwy266004dwt9p7mxl75gf/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://47.101.148.21" target="_blank">我的怪兽猫</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/UML/">UML</a></div><div class="post_share"><div class="social-share" data-image="https://pic2.zhimg.com/v2-db8567cfd5a24814a33b1ecdf94e14ff_r.jpg?source=1940ef5c" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/cl7fwy26p00a7wt9p9zeu6bu9/"><img class="prev-cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/14.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">大话设计模式之建造者模式</div></div></a></div><div class="next-post pull-right"><a href="/2021/cl7fwy261002twt9p4rgu2i4o/"><img class="next-cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/Python.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Python基础-17函数进阶</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Monster</div><div class="author-info__description">山腰的风景很美，然而我还是想到山顶去看看</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div><a class="button--animated" id="card-info-btn" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1264833435&amp;website=www.oicqzone.com"><i class="iconfont icon-open"></i><span>Link Start</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/MyMonsterCat" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">祝大家新年快乐，虎虎生威~！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E4%B8%AD%E9%9C%80%E8%A6%81%E7%94%BB%E5%9B%BE%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="toc-text">一般软件生命周期中需要画图的地方</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-text">流程图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E8%A7%84%E8%8C%83"><span class="toc-text">符号规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E8%A7%84%E8%8C%83"><span class="toc-text">结构规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E5%BE%84%E8%A7%84%E8%8C%83"><span class="toc-text">路径规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%B3%E9%81%93%E5%9B%BE"><span class="toc-text">泳道图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UML"><span class="toc-text">UML</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E4%BE%8B%E5%9B%BE"><span class="toc-text">用例图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB"><span class="toc-text">1）关联关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89%E5%BD%92%E7%BA%B3%EF%BC%88%E6%B3%9B%E5%8C%96%EF%BC%89%E5%85%B3%E7%B3%BB"><span class="toc-text">2）归纳（泛化）关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%BC%89%E5%8C%85%E5%90%AB%E5%85%B3%E7%B3%BB"><span class="toc-text">3）包含关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%BC%89%E6%8B%93%E5%B1%95%E5%85%B3%E7%B3%BB"><span class="toc-text">4）拓展关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9B%BE"><span class="toc-text">类图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E7%B1%BB"><span class="toc-text">1）类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">2）类的关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%9B%BE"><span class="toc-text">对象图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E5%AF%B9%E8%B1%A1%E5%9B%BE%E6%A6%82%E5%BF%B5"><span class="toc-text">1）对象图概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9B%BE%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%9B%BE%E7%9A%84%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%BC%82%E5%90%8C"><span class="toc-text">类图和对象图的关系及异同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89%E5%AF%B9%E8%B1%A1%E5%9B%BE%E7%9A%84%E7%BB%84%E6%88%90%E5%85%83%E7%B4%A0"><span class="toc-text">2）对象图的组成元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%BC%89%E5%AF%B9%E8%B1%A1%E5%9B%BE%E5%AE%9E%E4%BE%8B"><span class="toc-text">3）对象图实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%BC%89%E5%AF%B9%E8%B1%A1%E5%9B%BE%E7%9A%84%E5%BB%BA%E6%A8%A1%E8%BF%87%E7%A8%8B"><span class="toc-text">4）对象图的建模过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%85%E5%9B%BE"><span class="toc-text">包图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%9B%BE"><span class="toc-text">部署图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E8%8A%82%E7%82%B9%EF%BC%88Node%EF%BC%89-amp-%E8%8A%82%E7%82%B9%E5%AE%9E%E4%BE%8B%EF%BC%88Node-Instance%EF%BC%89"><span class="toc-text">1）节点（Node）&amp; 节点实例（Node Instance）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89%E6%9E%84%E4%BB%B6%EF%BC%88Artifact%EF%BC%89"><span class="toc-text">2）构件（Artifact）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%BC%89%E8%BF%9E%E6%8E%A5%EF%BC%88Association%EF%BC%89"><span class="toc-text">3）连接（Association）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%BC%89%E9%83%A8%E7%BD%B2%E5%9B%BE%E5%AE%9E%E4%BE%8B"><span class="toc-text">4）部署图实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E5%9B%BE"><span class="toc-text">顺序图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89-%E4%BB%80%E4%B9%88%E6%98%AF%E6%97%B6%E5%BA%8F%E5%9B%BE%EF%BC%9F"><span class="toc-text">1） 什么是时序图？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89-%E6%97%B6%E5%BA%8F%E5%9B%BE%E7%9A%84%E7%BB%84%E6%88%90%E5%85%83%E7%B4%A0"><span class="toc-text">2） 时序图的组成元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%BC%89-%E5%A6%82%E4%BD%95%E7%BB%98%E5%88%B6%E6%97%B6%E5%BA%8F%E5%9B%BE%EF%BC%9F"><span class="toc-text">3） 如何绘制时序图？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E9%A1%BA%E5%BA%8F%E5%9B%BE%E3%80%81%E7%8A%B6%E6%80%81%E5%9B%BE%E4%BB%96%E4%BB%AC%E4%B8%89%E8%80%85%E5%88%86%E5%88%AB%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-text">流程图、顺序图、状态图他们三者分别解决什么样的问题？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE-VS-%E9%A1%BA%E5%BA%8F%E5%9B%BE"><span class="toc-text">流程图 VS 顺序图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE-VS-%E7%8A%B6%E6%80%81%E5%9B%BE"><span class="toc-text">流程图 VS 状态图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E5%9B%BE-%E5%8D%8F%E4%BD%9C%E5%9B%BE"><span class="toc-text">通信图&#x2F;协作图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E6%9C%BA%E5%9B%BE"><span class="toc-text">状态机图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%BB%E5%8A%A8%E5%9B%BE"><span class="toc-text">活动图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#E-R%E5%9B%BE"><span class="toc-text">E-R图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFE-R%E5%9B%BE%EF%BC%9F"><span class="toc-text">什么是E-R图？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-R%E5%9B%BE%E7%9A%84%E7%BB%98%E5%9B%BE%E8%A7%84%E8%8C%83"><span class="toc-text">E-R图的绘图规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-R%E5%9B%BE%E7%9A%84%E5%85%B7%E4%BD%93%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B"><span class="toc-text">E-R图的具体绘制流程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%8E%A8%E8%8D%90"><span class="toc-text">一些推荐</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%BB%E5%9B%BE%E5%B7%A5%E5%85%B7"><span class="toc-text">画图工具</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwy26o00a3wt9p44xg062l/" title="软件设计师-操作系统"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/image-20220301002332267.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件设计师-操作系统"/></a><div class="content"><a class="title" href="/2022/cl7fwy26o00a3wt9p44xg062l/" title="软件设计师-操作系统">软件设计师-操作系统</a><time datetime="2022-02-28T16:19:16.000Z" title="发表于 2022-03-01 00:19:16">2022-03-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwy25r000xwt9pbvqc234p/" title="DDD领域驱动设计-4.实践及其他"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-4.实践及其他"/></a><div class="content"><a class="title" href="/2022/cl7fwy25r000xwt9pbvqc234p/" title="DDD领域驱动设计-4.实践及其他">DDD领域驱动设计-4.实践及其他</a><time datetime="2022-02-28T06:44:12.000Z" title="发表于 2022-02-28 14:44:12">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwy25o000hwt9p29m35o3e/" title="DDD领域驱动设计-3.分层架构"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-3.分层架构"/></a><div class="content"><a class="title" href="/2022/cl7fwy25o000hwt9p29m35o3e/" title="DDD领域驱动设计-3.分层架构">DDD领域驱动设计-3.分层架构</a><time datetime="2022-02-28T05:02:52.000Z" title="发表于 2022-02-28 13:02:52">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwy25n000fwt9p22fwgulj/" title="DDD领域驱动设计-2.基本概念"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-2.基本概念"/></a><div class="content"><a class="title" href="/2022/cl7fwy25n000fwt9p22fwgulj/" title="DDD领域驱动设计-2.基本概念">DDD领域驱动设计-2.基本概念</a><time datetime="2022-02-28T04:32:52.000Z" title="发表于 2022-02-28 12:32:52">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwy25p000lwt9p4nkvb03j/" title="DDD领域驱动设计-1.入门介绍"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-1.入门介绍"/></a><div class="content"><a class="title" href="/2022/cl7fwy25p000lwt9p4nkvb03j/" title="DDD领域驱动设计-1.入门介绍">DDD领域驱动设计-1.入门介绍</a><time datetime="2022-02-28T04:02:52.000Z" title="发表于 2022-02-28 12:02:52">2022-02-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Monster</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43010402000915"><span> 湘公网安备 43010402000915号 </span></a><a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/"><img class="icp-icon" src="/img/icp.png"><span>鲁ICP备2021006500号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'gta1kVza0nbBPTle7TavUngV-gzGzoHsz',
+      appKey: 'jLVBRdBH7kwXKGX1ihnCyXYj',
+      placeholder: '记得留下你的昵称和邮箱，我可以在收到以后快速回复',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '4',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener toc scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-9V4FJV65ZE', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

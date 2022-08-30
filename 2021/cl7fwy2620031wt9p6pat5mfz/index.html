@@ -1,0 +1,574 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>注册中心 | 我的怪兽猫</title><meta name="keywords" content="SpringClond"><meta name="author" content="Monster"><meta name="copyright" content="Monster"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="微服务组件注册中心学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="注册中心">
+<meta property="og:url" content="https://47.101.148.21/2021/cl7fwy2620031wt9p6pat5mfz/index.html">
+<meta property="og:site_name" content="我的怪兽猫">
+<meta property="og:description" content="微服务组件注册中心学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg">
+<meta property="article:published_time" content="2021-02-01T01:25:00.000Z">
+<meta property="article:modified_time" content="2022-04-16T07:18:08.000Z">
+<meta property="article:author" content="Monster">
+<meta property="article:tag" content="Spring Clond">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://47.101.148.21/2021/cl7fwy2620031wt9p6pat5mfz/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-9V4FJV65ZE"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-9V4FJV65ZE');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '注册中心',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2022-04-16 15:18:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/MyStyle/MyStyle.css" media="defer" onload="this.media='all'"/><link rel="stylesheet" href="/css/MyStyle/tagStyle.css" media="defer" onload="this.media='all'"/><link rel="stylesheet" href="/css/MyStyle/JetBrainsMono.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_2630408_9i65adv8yet.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首  页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-wenzhangguanli"></i><span> 看文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标  签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分  类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 搞学习</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/pdf/"><i class="fa-fw iconfont icon-pdf"></i><span> PDF</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw iconfont icon-movie"></i><span> Movie</span></a></li><li><a class="site-page child" href="/leetcode/"><i class="fa-fw iconfont icon-leetcode"></i><span> 算  法</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-xiuxi"></i><span> 去娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce1"></i><span> 相册</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw iconfont icon-book"></i><span> 书单</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 异世界</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-wogerenziliao"></i><span> 关  于</span></a></div><div class="menus_item"><a class="site-page" href="/love/"><i class="fa-fw iconfont icon-aixin"></i><span> 我  们</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">我的怪兽猫</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首  页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-wenzhangguanli"></i><span> 看文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标  签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分  类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 搞学习</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/pdf/"><i class="fa-fw iconfont icon-pdf"></i><span> PDF</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw iconfont icon-movie"></i><span> Movie</span></a></li><li><a class="site-page child" href="/leetcode/"><i class="fa-fw iconfont icon-leetcode"></i><span> 算  法</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-xiuxi"></i><span> 去娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce1"></i><span> 相册</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw iconfont icon-book"></i><span> 书单</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 异世界</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-wogerenziliao"></i><span> 关  于</span></a></div><div class="menus_item"><a class="site-page" href="/love/"><i class="fa-fw iconfont icon-aixin"></i><span> 我  们</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">注册中心</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-01T01:25:00.000Z" title="发表于 2021-02-01 09:25:00">2021-02-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-16T07:18:08.000Z" title="更新于 2022-04-16 15:18:08">2022-04-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/SpringCloud/">SpringCloud</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="注册中心"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><blockquote>
+<p>该文章为学习微服务时做的笔记，现经过系统整理分享出来。该文章偏基础，如果您已掌握以下几个问题，请直接拉到文章最底部关注公众号获取更多感兴趣文章~</p>
+<ul>
+<li>SpringClound组件有哪些</li>
+<li>服务注册、服务发现、服务治理分别是什么</li>
+<li>进行服务注册的几种方式，分别有什么异同</li>
+<li>CAP理论</li>
+<li>集群构建原理</li>
+<li>使用注册中心实现简单的负载均衡</li>
+</ul>
+</blockquote>
+<h1 id="一、SpringCloud最新概览"><a href="#一、SpringCloud最新概览" class="headerlink" title="一、SpringCloud最新概览"></a>一、SpringCloud最新概览</h1><p><strong>部分组件升级,部分组件停用</strong></p>
+<blockquote>
+<p>1.Eureka停用,可以使用zk作为服务注册中心</p>
+<p>2.服务调用,Ribbon准备停更,代替为LoadBalance</p>
+<p>3.Feign改为OpenFeign</p>
+<p>4.Hystrix停更,改为resilence4j或者阿里巴巴的sentienl</p>
+<p>5.Zuul改为gateway</p>
+<p>6.服务配置Config改为  Nacos</p>
+<p>7.服务总线Bus改为Nacos</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Clound%E7%BB%84%E4%BB%B6%E5%81%9C%E6%9B%B4.png" alt="Springcloud组件停更"></p>
+<h1 id="二、服务注册与发现"><a href="#二、服务注册与发现" class="headerlink" title="二、服务注册与发现"></a>二、服务注册与发现</h1><h2 id="（一）-Eureka服务注册与发现"><a href="#（一）-Eureka服务注册与发现" class="headerlink" title="（一） Eureka服务注册与发现"></a>（一） Eureka服务注册与发现</h2><p>Eureka用于<strong>服务注册</strong>,目前官网<strong>已经停止更新</strong></p>
+<h3 id="1-1-什么是服务治理"><a href="#1-1-什么是服务治理" class="headerlink" title="1.1  什么是服务治理"></a>1.1  什么是服务治理</h3><blockquote>
+<p>​    SpringClound封装了Netflix公司开发的<strong>Eureka</strong>模块来实现<strong>服务治理</strong></p>
+<p>​    在传统的rpc远程调用框架中，管理每个服务与服务之间依赖关系比较复杂，管理比较复杂，所以需要<code>服务治理</code>，管理服务与服务之间的依赖关系，可以实现服务调用、负载均衡、容错等，实现服务发现与注册</p>
+</blockquote>
+<h3 id="1-2-服务注册"><a href="#1-2-服务注册" class="headerlink" title="1.2 服务注册"></a>1.2 服务注册</h3><h4 id="1-2-1-什么是服务注册与发现？"><a href="#1-2-1-什么是服务注册与发现？" class="headerlink" title="1.2.1 什么是服务注册与发现？"></a><strong>1.2.1 什么是服务注册与发现？</strong></h4><blockquote>
+<p>​    Eureka采用了CS的设计架构，Eureka Server作为服务注册功能的服务器，它是服务注册中心。而系统中的其他微服务，使用Eureka的客户端连接到Eureka Server并维持心跳连接。这样系统的维护人员就可以通过Eureka Server来监控系统中各个微服务是否正常运行。</p>
+<p>​    在服务注册与发现中，有一个注册中心。当服务器启动的时候，会把当前自己服务器的信息比如服务地址通讯地址等<strong>以别名方式</strong>注册到注册中心上。另一方(消费者|服务提供者)，以该别名的方式去注册中心上<strong>获取到实际的服务通讯地址</strong>,然后再实现本地RPC调用RPC远程调用。</p>
+<p>​    <strong>框架核心设计思想</strong>:在于注册中心，因为使用注册中心管理每个服务与服务之间的一个依赖关系(<strong>服务治理概念</strong>)。在任何rpc远程框架中，都会有一个注册中心(存放服务地址相关信息(接口地址))</p>
+</blockquote>
+<h4 id="1-2-2-为什么要服务注册"><a href="#1-2-2-为什么要服务注册" class="headerlink" title="1.2.2 为什么要服务注册?"></a><strong>1.2.2 为什么要服务注册?</strong></h4><blockquote>
+<p>当服务很多时,单靠代码手动管理是很麻烦的,需要一个公共组件,统一管理多服务,包括服务是否正常运行等</p>
+</blockquote>
+<h3 id="1-3-Eureka的两个组件"><a href="#1-3-Eureka的两个组件" class="headerlink" title="1.3 Eureka的两个组件"></a>1.3 Eureka的两个组件</h3><p><strong><font color = blue>Eureka Server提供服务注册服务</font></strong><br>    各个微服务节点通过配置启动后,会在EurekaServer中进行注册，这样EurekaServer中的服务注册表中将会<strong>存储所有可用服务节点的信息</strong>,服务节点的信息可以在界面中直观看到。</p>
+<p><strong><font color = blue>EurekaClient通过注册中心进行访问</font></strong><br>    是一个Java客户端，用于简化Eureka Server的交互,客户端同时也具备一个<strong>内置的、使用轮询(round-robin)负载算法的负载均衡器</strong>。在应用启动后，将会向Eureka Server发送心跳(<strong>默认周期为30秒</strong>)。如果Eureka Server在多个心跳周期内没有接收到某个节点的心跳，EurekaServer将会从服务注册表中把这个服务节点移除(<strong>默认90秒</strong>)</p>
+<h3 id="1-4-Eureka与Duboo架构对比"><a href="#1-4-Eureka与Duboo架构对比" class="headerlink" title="1.4 Eureka与Duboo架构对比"></a>1.4 Eureka与Duboo架构对比</h3><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E7%9A%843.png" alt="Eureka与Duboo架构对比"></p>
+<h3 id="1-5-实战：实现单机版eureka"><a href="#1-5-实战：实现单机版eureka" class="headerlink" title="1.5 实战：实现单机版eureka"></a>1.5 实战：实现单机版eureka</h3><h4 id="①-创建项目cloud-eureka-server-7001"><a href="#①-创建项目cloud-eureka-server-7001" class="headerlink" title="① 创建项目cloud_eureka_server_7001"></a>① 创建项目cloud_eureka_server_7001</h4><h4 id="②-引入pom依赖"><a href="#②-引入pom依赖" class="headerlink" title="② 引入pom依赖"></a>② 引入pom依赖</h4><p>​        eurka最新的依赖变了</p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E7%9A%845.png" alt="eurka最新的依赖变了"></p>
+<h4 id="③-配置文件"><a href="#③-配置文件" class="headerlink" title="③ 配置文件"></a>③ 配置文件</h4><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/danjieurekayaml.png" alt="单机eureka配置"></p>
+<h4 id="④-主启动类"><a href="#④-主启动类" class="headerlink" title="④ 主启动类"></a>④ 主启动类</h4><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E4%B8%BB%E5%90%AF%E5%8A%A8%E7%B1%BB.png" alt="Eureka主启动类"></p>
+<h4 id="⑤-启动当前项目-eureka服务端"><a href="#⑤-启动当前项目-eureka服务端" class="headerlink" title="⑤ 启动当前项目(eureka服务端)"></a>⑤ 启动当前项目(eureka服务端)</h4><h4 id="⑥其他服务-模块-注册到eureka"><a href="#⑥其他服务-模块-注册到eureka" class="headerlink" title="⑥其他服务(模块)注册到eureka"></a>⑥其他服务(模块)注册到eureka</h4><p>主启动类上,加注解,表示当前是eureka客户端<code>@EnableEurekaClient</code></p>
+<p>修改pom</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-netflix-eureka-client<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改配置文件:</p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E7%9A%849.png"></p>
+<p>pay模块重启,就可以注册到eureka中了</p>
+<h3 id="1-6-集群版eureka"><a href="#1-6-集群版eureka" class="headerlink" title="1.6 集群版eureka"></a>1.6 集群版eureka</h3><h4 id="1-6-1-集群原理"><a href="#1-6-1-集群原理" class="headerlink" title="1.6.1 集群原理"></a>1.6.1 集群原理</h4><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E7%9A%8411.png" alt="集群原理"></p>
+ <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">1</span><span class="token punctuation">,</span>就是pay模块启动时<span class="token punctuation">,</span>注册自己<span class="token punctuation">,</span>并且自身信息也放入eureka
+<span class="token number">2.</span>order模块<span class="token punctuation">,</span>首先也注册自己<span class="token punctuation">,</span>放入信息<span class="token punctuation">,</span>当要调用pay时<span class="token punctuation">,</span>先从eureka拿到pay的调用地址
+<span class="token number">3.</span>通过<span class="token class-name">HttpClient</span>调用
+ 	并且还会缓存一份到本地<span class="token punctuation">,</span>每<span class="token number">30</span>秒更新一次<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>问：微服务RPC远程服务调用的最核心的是什么？</p>
+<p>答：高可用，试想你的注册中心只有一个，它出故障了那就high了，会导致整个服务环境不可用，所以此时可以搭建Eureka注册中心集群，实现<code>负载均衡</code>+<code>故障</code>r容错</p>
+</blockquote>
+<h4 id="1-6-2-集群构建原理-互相注册"><a href="#1-6-2-集群构建原理-互相注册" class="headerlink" title="1.6.2 集群构建原理:互相注册"></a>1.6.2 集群构建原理:<code>互相注册</code></h4><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E7%9A%8413.png" alt="集群构建原理"></p>
+<h4 id="1-6-3-实战：构建eureka集群"><a href="#1-6-3-实战：构建eureka集群" class="headerlink" title="1.6.3 实战：构建eureka集群"></a>1.6.3 实战：构建eureka集群</h4><p>简单画一张图来说明一下下面将要实现的结构</p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/eurake%E9%9B%86%E7%BE%A4%E5%88%9D%E5%A7%8B.jpg" alt="构建eureka集群"></p>
+<h5 id="①-构建新eureka集群项目-cloud-eureka-server-7002"><a href="#①-构建新eureka集群项目-cloud-eureka-server-7002" class="headerlink" title="① 构建新eureka集群项目:cloud_eureka_server_7002"></a>① 构建新eureka集群项目:cloud_eureka_server_7002</h5><h5 id="②-pom文件-粘贴7001的即可"><a href="#②-pom文件-粘贴7001的即可" class="headerlink" title="② pom文件:粘贴7001的即可"></a>② pom文件:粘贴7001的即可</h5><h5 id="③-配置文件-1"><a href="#③-配置文件-1" class="headerlink" title="③ 配置文件:"></a>③ 配置文件:</h5><p>​    在写配置文件前,修改一下主机的hosts文件</p>
+<pre class="line-numbers language-none"><code class="language-none">127.0.0.1-eureka7001.com
+127.0.0.1-eureka7002.com
+127.0.0.1-eureka7003.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>​    首先修改之前的7001的eureka项目,因为多个eureka<strong>需要互相注册</strong></p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%B3%A8%E5%86%8C%E5%88%B07002.png" alt="注册到7002"></p>
+<p>然后修改7002，<strong>7002也是一样的,只不过端口和地址改一下</strong></p>
+<h5 id="④-主启动类-1"><a href="#④-主启动类-1" class="headerlink" title="④ 主启动类"></a>④ 主启动类</h5><p>​        复制7001的即可</p>
+<h5 id="⑤-然后启动7001-7002即可"><a href="#⑤-然后启动7001-7002即可" class="headerlink" title="⑤ 然后启动7001,7002即可"></a>⑤ 然后启动7001,7002即可</h5><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E9%9B%86%E7%BE%A4%E5%90%AF%E5%8A%A8%E7%BB%93%E6%9E%9C.jpg" alt="集群启动结果"></p>
+<h5 id="⑥-将pay-order模块注册到eureka集群中"><a href="#⑥-将pay-order模块注册到eureka集群中" class="headerlink" title="⑥ 将pay,order模块注册到eureka集群中:"></a>⑥ 将pay,order模块注册到eureka集群中:</h5><h6 id="1）只需要修改配置文件即可"><a href="#1）只需要修改配置文件即可" class="headerlink" title="1）只需要修改配置文件即可"></a>1）只需要修改配置文件即可</h6><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/pay%E6%B3%A8%E5%86%8C%E5%88%B0%E9%9B%86%E7%BE%A4.png" alt="pay注册到集群配置"></p>
+<h6 id="2）两个模块都修改上面的都一样即可"><a href="#2）两个模块都修改上面的都一样即可" class="headerlink" title="2）两个模块都修改上面的都一样即可"></a>2）两个模块都修改上面的都一样即可</h6><p>​            要先启动7001,7002,然后是pay模块8001,然后是order模块</p>
+<h5 id="⑦-将pay模块构建集群环"><a href="#⑦-将pay模块构建集群环" class="headerlink" title="⑦ 将pay模块构建集群环"></a>⑦ 将pay模块构建集群环</h5><blockquote>
+<p>此时我们发现，如果某天突然8001宕机了，那么整个支付功能将不能再使用，所以为什么不把pay模块也做成集群呢？</p>
+</blockquote>
+<h6 id="新增pay模块cloud-provider-payment8002，具体步骤省略"><a href="#新增pay模块cloud-provider-payment8002，具体步骤省略" class="headerlink" title="新增pay模块cloud-provider-payment8002，具体步骤省略"></a>新增pay模块cloud-provider-payment8002，具体步骤省略</h6><p>但是在运行以后并没有出现轮寻的效果，这是因为<strong>订单服务访问地址不能写死</strong></p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E7%9A%8418.png" alt="订单服务访问地址不能写死"></p>
+<p><strong>注意这样还不可以,需要让RestTemplate开启负载均衡注解,还可以指定负载均衡算法,默认轮询</strong></p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%B3%A8%E8%A7%A3.png" alt="开启负载均衡"></p>
+<h3 id="1-7-actuator微服务信息完善"><a href="#1-7-actuator微服务信息完善" class="headerlink" title="1.7 actuator微服务信息完善"></a>1.7 actuator微服务信息完善</h3><p>修改配置文件即可</p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E7%9A%8420.png" alt="微服务信息完善"></p>
+<h3 id="1-8-eureka服务发现"><a href="#1-8-eureka服务发现" class="headerlink" title="1.8 eureka服务发现:"></a>1.8 eureka服务发现:</h3><blockquote>
+<p>对于注册进eureka里面的微服务，可以通过服务发现来获得该服务的信息</p>
+</blockquote>
+<p>以pay模块为例</p>
+<h4 id="1-8-1-在controller中添加一个注解"><a href="#1-8-1-在controller中添加一个注解" class="headerlink" title="1.8.1 在controller中添加一个注解"></a>1.8.1 在controller中添加一个注解</h4><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E7%9A%8422.png" alt="添加服务发现注解"></p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E7%9A%8423.png" alt="服务发现示例"></p>
+<h4 id="1-8-2-在主启动类上添加一个注解"><a href="#1-8-2-在主启动类上添加一个注解" class="headerlink" title="1.8.2 在主启动类上添加一个注解"></a>1.8.2 在主启动类上添加一个注解</h4><p>​    在主启动类上添加一个注解<code>@EnableDiscoveryClient</code>，<strong>然后重启8001.访问</strong>即可</p>
+<h3 id="1-9-Eureka自我保护"><a href="#1-9-Eureka自我保护" class="headerlink" title="1.9 Eureka自我保护"></a>1.9 Eureka自我保护</h3><h4 id="1-9-1-故障现象"><a href="#1-9-1-故障现象" class="headerlink" title="1.9.1 故障现象"></a>1.9.1 故障现象</h4><p>​    保护模式主要用户用于一组客户端和Eureka Server之间存在网络分区场景下的保护，一旦进入保护模式，<font color = red>Eureka Server将会尝试保护其服务注册表中的信息，不再删除服务注册表中的数据，也就是不会注销任何微服务</font>。</p>
+<p>​    如果在Eureka Server首页看到了以下这段提示，就说明进入了保护模式。</p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E7%9A%8426.png" alt="保护模式提示"></p>
+<p>​    一句话概括，<font color = orange>某时刻某一个微服务不可用了，Eureka不会立刻清理，依旧会对该微服务的信息进行保存</font>。这属于CAP里面的AP分支。</p>
+<h4 id="1-9-2-导致原因"><a href="#1-9-2-导致原因" class="headerlink" title="1.9.2 导致原因"></a>1.9.2 导致原因</h4><p>在探究导致原因之前，我们首先需要知道什么是自我保护机制</p>
+<blockquote>
+<p>默认情况下，如果Eureka Server在一定时间内（默认90秒）没有接收到某个微服务实例的心跳，Eureka Server将会注销该实例。</p>
+<p>但是当网络分区发生故障时（延时、卡顿、拥挤），微服务与Eureka Server之间无法正常通信，上面的注销行为可能就变得非常危险了（因为微服务本身是健康的，<font color = red>此时本不应该注销这个微服务</font>。）所以Eureka通过<strong>自我保护模式</strong>来解决这个问题，当Eureka Server节点在短时间内丢失过多的客户端时（可能发生了网络分区故障）,那么这个节点就会进入自我保护模式。</p>
+</blockquote>
+<p>在看完上面的自我保护机制的定义后，其实对<strong>为什么会产生自我保护机制</strong>已经解释的很清楚了</p>
+<blockquote>
+<p>为了防止EurekaClient可以正常运行，但是与Eureka Server网络不通的情况下，Eureka Server<font color = red>不会立刻</font>将EurekaClient服务剔除</p>
+</blockquote>
+<h4 id="1-9-3-怎么禁止自我保护机制"><a href="#1-9-3-怎么禁止自我保护机制" class="headerlink" title="1.9.3 怎么禁止自我保护机制"></a>1.9.3 怎么禁止自我保护机制</h4><p>默认自我保护机制是开启的</p>
+<p>eureka服务端配置使用下面的设置可以禁用自我保护模式</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">eureka<span class="token punctuation">.</span>server<span class="token punctuation">.</span>enable<span class="token operator">-</span>self<span class="token operator">-</span>preservation <span class="token operator">=</span> <span class="token boolean">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>客户端设置接受心跳时间间隔</p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Eureka%E7%9A%8431.png" alt="设置心跳"></p>
+<h2 id="（二）Zookeeper服务注册与发现"><a href="#（二）Zookeeper服务注册与发现" class="headerlink" title="（二）Zookeeper服务注册与发现"></a>（二）Zookeeper服务注册与发现</h2><h3 id="2-1-Zookeeper是什么"><a href="#2-1-Zookeeper是什么" class="headerlink" title="2.1 Zookeeper是什么"></a>2.1 Zookeeper是什么</h3><p>zookeeper是一个分布式协调工具，可以实现注册中心功能</p>
+<h3 id="2-2-单机版zookeeper"><a href="#2-2-单机版zookeeper" class="headerlink" title="2.2 单机版zookeeper"></a>2.2 单机版zookeeper</h3><h4 id="2-2-1-在linux上启动Zookeeper"><a href="#2-2-1-在linux上启动Zookeeper" class="headerlink" title="2.2.1 在linux上启动Zookeeper"></a>2.2.1 在linux上启动Zookeeper</h4><p>​    关闭Linux服务器防火墙后启动zookeeper服务器</p>
+<h4 id="2-2-2-创建新的pay模块cloud-provider-payment8004"><a href="#2-2-2-创建新的pay模块cloud-provider-payment8004" class="headerlink" title="2.2.2 创建新的pay模块cloud-provider-payment8004"></a>2.2.2 创建新的pay模块cloud-provider-payment8004</h4><h5 id="①-pom依赖"><a href="#①-pom依赖" class="headerlink" title="① pom依赖"></a>① pom依赖</h5><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/zookeeper%E4%BE%9D%E8%B5%96.png" alt="zookeeper依赖"></p>
+<h5 id="②-配置文件"><a href="#②-配置文件" class="headerlink" title="② 配置文件"></a>② 配置文件</h5><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/8004zk%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" alt="8004配置文件"></p>
+<h5 id="③-主启动类（略）"><a href="#③-主启动类（略）" class="headerlink" title="③ 主启动类（略）"></a>③ 主启动类（略）</h5><h5 id="④-controller"><a href="#④-controller" class="headerlink" title="④ controller"></a>④ controller</h5><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/8004Controller.png" alt="8004Controller"></p>
+<h5 id="⑤启动"><a href="#⑤启动" class="headerlink" title="⑤启动"></a>⑤启动</h5><p><strong>此时启动,会报错,因为jar包与我们的zk版本不匹配</strong></p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/8004%E6%8A%A5%E9%94%99.jpg" alt="8004报错"></p>
+<p>**解决:**修改pom文件,改为与我们zk版本匹配的jar包</p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/zookeeper%E7%9A%844.png" alt="改为与zk版本匹配的jar包"></p>
+<p><strong>此时8003就注册到zk中了</strong></p>
+<blockquote>
+<p>问：服务节点是临时节点还是持久节点 ？</p>
+<p>答：我们在zk上注册的node是临时节点,当我们的服务一定时间内没有发送心跳，那么zk就会将这个服务的node删除了</p>
+</blockquote>
+<h4 id="2-2-3-创建order消费模块注册到zk"><a href="#2-2-3-创建order消费模块注册到zk" class="headerlink" title="2.2.3 创建order消费模块注册到zk"></a>2.2.3 创建order消费模块注册到zk</h4><h5 id="①-创建项目cloud-order-zk-80"><a href="#①-创建项目cloud-order-zk-80" class="headerlink" title="① 创建项目cloud_order_zk_80"></a>① 创建项目cloud_order_zk_80</h5><h5 id="②-pom-略"><a href="#②-pom-略" class="headerlink" title="② pom(略)"></a>② pom(略)</h5><h5 id="③-配置文件-2"><a href="#③-配置文件-2" class="headerlink" title="③ 配置文件"></a>③ 配置文件</h5><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>consumer<span class="token punctuation">-</span>order
+  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+    <span class="token key atrule">zookeeper</span><span class="token punctuation">:</span>
+      <span class="token key atrule">connect-string</span><span class="token punctuation">:</span> 192.168.136.140<span class="token punctuation">:</span><span class="token number">2181</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="④-主启动类-略"><a href="#④-主启动类-略" class="headerlink" title="④ 主启动类(略)"></a>④ 主启动类(略)</h5><h5 id="⑤-RestTemolate同样添加负载均衡注解"><a href="#⑤-RestTemolate同样添加负载均衡注解" class="headerlink" title="⑤ RestTemolate同样添加负载均衡注解"></a>⑤ RestTemolate同样添加负载均衡注解</h5><h5 id="⑥-controller"><a href="#⑥-controller" class="headerlink" title="⑥ controller"></a>⑥ controller</h5><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/zookeeper%E7%9A%847.png"></p>
+<p><strong>然后启动即可注册到zk</strong></p>
+<h3 id="2-3-集群版zookeeper"><a href="#2-3-集群版zookeeper" class="headerlink" title="2.3 集群版zookeeper"></a>2.3 集群版zookeeper</h3><p>只需要修改配置文件，connect-string指定多个zk地址即可</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">connect-string</span><span class="token punctuation">:</span> 192.168.136.140<span class="token punctuation">:</span><span class="token number">2181</span><span class="token punctuation">,</span>192.168.136.140<span class="token punctuation">:</span><span class="token number">2281</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="（三）Consul服务注册与发现"><a href="#（三）Consul服务注册与发现" class="headerlink" title="（三）Consul服务注册与发现"></a>（三）Consul服务注册与发现</h2><h3 id="3-1-Consul是什么"><a href="#3-1-Consul是什么" class="headerlink" title="3.1 Consul是什么"></a>3.1 Consul是什么</h3><p>​    Consul是一套开源的分布式服务发现和配置管理系统, 由HashiCorp公司<strong>用Go语言开发</strong>。</p>
+<p>​    提供了微服务系统中的服务治理、配置中心、控制总线等功能。这些功能中的<strong>每一个都可以根据需要单独使用</strong>，也可以一起使用以构建全方位的服务网格,总之Consul提供了一种完整的服务网格解决方案。</p>
+<p>​    它具有很多优点。包括:基于raft协议,比较简洁;支持健康检查, 同时支持HTTP和DNS协议支持跨数据中心的WAN集群提供图形界面跨平台，支持Linux、Mac、 Windows</p>
+<h3 id="3-2-能干嘛"><a href="#3-2-能干嘛" class="headerlink" title="3.2 能干嘛"></a>3.2 能干嘛</h3><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>具体说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>服务发现</td>
+<td>提供HTTP和DNS两种发现方式</td>
+</tr>
+<tr>
+<td>健康监测</td>
+<td>支持多种协议，HTTP、TCP、Docker、Shell脚本定制化</td>
+</tr>
+<tr>
+<td>KV存储</td>
+<td>key , Value的存储方式</td>
+</tr>
+<tr>
+<td>多数据中心</td>
+<td>Consul支持多数据中心</td>
+</tr>
+<tr>
+<td>可视化Web界面</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="3-3-安装并运行Consul"><a href="#3-3-安装并运行Consul" class="headerlink" title="3.3 安装并运行Consul"></a>3.3 安装并运行Consul</h3><h4 id="3-3-1-官网安装说明"><a href="#3-3-1-官网安装说明" class="headerlink" title="3.3.1 官网安装说明"></a>3.3.1 官网安装说明</h4><p><a target="_blank" rel="noopener" href="https://learn.hashicorp.com/consul/getting-started/install.html">https://learn.hashicorp.com/consul/getting-started/install.html</a></p>
+<h4 id="3-3-2-查看版本信息"><a href="#3-3-2-查看版本信息" class="headerlink" title="3.3.2 查看版本信息"></a>3.3.2 查看版本信息</h4><p>​    下载完成后只有一个consul.exe文件，硬盘路径下双击运行，查看版本信息</p>
+<h4 id="3-3-3-使用开发模式启动"><a href="#3-3-3-使用开发模式启动" class="headerlink" title="3.3.3 使用开发模式启动"></a>3.3.3 使用开发模式启动</h4><pre class="line-numbers language-none"><code class="language-none">consul agent -dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>通过以下地址可以访问Consul的首页<code>http://localhost:8500</code></p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/consul%E7%95%8C%E9%9D%A2.png"></p>
+<h4 id="3-3-4-实战"><a href="#3-3-4-实战" class="headerlink" title="3.3.4 实战"></a>3.3.4 实战</h4><h5 id="①-新建模块cloud-consule-pay-8006"><a href="#①-新建模块cloud-consule-pay-8006" class="headerlink" title="① 新建模块cloud_consule_pay_8006"></a>① 新建模块cloud_consule_pay_8006</h5><h5 id="②-pom依赖"><a href="#②-pom依赖" class="headerlink" title="② pom依赖"></a>② pom依赖</h5><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-consul-discovery<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="③-配置文件-3"><a href="#③-配置文件-3" class="headerlink" title="③ 配置文件"></a>③ 配置文件</h5><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8006</span>
+  
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> consul<span class="token punctuation">-</span>consumer<span class="token punctuation">-</span>order
+  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+    <span class="token key atrule">consul</span><span class="token punctuation">:</span>
+      <span class="token key atrule">host</span><span class="token punctuation">:</span> localhost
+      <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8500</span>
+      <span class="token key atrule">discovery</span><span class="token punctuation">:</span>
+        <span class="token key atrule">service-name</span><span class="token punctuation">:</span> $<span class="token punctuation">&#123;</span>spring.application.name<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="④-主启动类-2"><a href="#④-主启动类-2" class="headerlink" title="④ 主启动类"></a>④ 主启动类</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@EnableDiscoveryClient</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderConsulMain80</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">OrderConsulMain80</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="⑤-controller"><a href="#⑤-controller" class="headerlink" title="⑤ controller"></a>⑤ controller</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderConsulController</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> INVOME_URL <span class="token operator">=</span> <span class="token string">"http://consul-provider-payment"</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;server.port&#125;"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> serverPort<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/payment/consul"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">paymentConsul</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token string">"springcloud with consul: "</span><span class="token operator">+</span>serverPort<span class="token operator">+</span><span class="token string">"\t"</span><span class="token operator">+</span> UUID<span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="⑥启动服务"><a href="#⑥启动服务" class="headerlink" title="⑥启动服务"></a>⑥启动服务</h5><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/consul%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85.jpg" alt="服务提供者"></p>
+<h5 id="⑦-新建模块cloud-consul-order-80"><a href="#⑦-新建模块cloud-consul-order-80" class="headerlink" title="⑦ 新建模块cloud-consul-order-80"></a>⑦ 新建模块cloud-consul-order-80</h5><p><strong>pom文件，同上</strong></p>
+<p><strong>配置文件，只需要改port为80</strong></p>
+<p><strong>主启动类(略)</strong></p>
+<p><strong>RestTemplate注册</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ApplicationContextConfig</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@LoadBalanced</span>
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">RestTemplate</span> <span class="token function">getRestTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RestTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>controller</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderConsulController</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> INVOME_URL <span class="token operator">=</span> <span class="token string">"http://consul-provider-payment"</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Resource</span> 
+    <span class="token keyword">private</span> <span class="token class-name">RestTemplate</span> restTemplate<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/consumer/payment/consul"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> payment <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+      <span class="token class-name">String</span> result <span class="token operator">=</span> restTemplate<span class="token punctuation">.</span><span class="token function">getForObject</span><span class="token punctuation">(</span>INVOME_URL<span class="token operator">+</span><span class="token string">"/payment/consul"</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>启动服务,测试</strong></p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/consul%E6%9C%8D%E5%8A%A1%E6%B6%88%E8%B4%B9%E8%80%85.jpg" alt="consul服务消费者"></p>
+<h2 id="（四）CAP与三个注册中心"><a href="#（四）CAP与三个注册中心" class="headerlink" title="（四）CAP与三个注册中心"></a>（四）CAP与三个注册中心</h2><h3 id="4-1-CAP理论"><a href="#4-1-CAP理论" class="headerlink" title="4.1 CAP理论"></a>4.1 CAP理论</h3><ul>
+<li><p>CAP原则又称CAP定理，指的是在一个分布式系统中，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%80%E8%87%B4%E6%80%A7/9840083">一致性</a>（Consistency）、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8F%AF%E7%94%A8%E6%80%A7/109628">可用性</a>（Availability）、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E5%8C%BA%E5%AE%B9%E9%94%99%E6%80%A7/23734073">分区容错性</a>（Partition tolerance）。CAP 原则指的是，这三个<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%A6%81%E7%B4%A0/5261200">要素</a>最多只能同时实现两点，不可能三者兼顾。</p>
+</li>
+<li><p>C:Consistency(强一致性)，A:Availability(可用性)，P:Partition tolerance(分区容错)</p>
+</li>
+</ul>
+<ul>
+<li>CAP理论关注粒度是<strong>数据</strong>，而不是整体系统设计的策略</li>
+<li><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1650890231453975345&wfr=spider&for=pc">详情可参考</a></li>
+</ul>
+<p><strong>AP：</strong>当网络分区出现后，为了保证可用性，系统B<font color = red >可以返回旧值</font>，保证系统的可用性</p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/ap.jpg" alt="AP"></p>
+<p>**CP:**当网络分区出现后，为了保证一致性，就必须拒接请求，否则无法保证一致性</p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/cp.jpg" alt="CP"></p>
+<h3 id="4-2-三个注册中心异同"><a href="#4-2-三个注册中心异同" class="headerlink" title="4.2 三个注册中心异同"></a>4.2 三个注册中心异同</h3><table>
+<thead>
+<tr>
+<th align="center">组件名</th>
+<th>语言</th>
+<th>CAP</th>
+<th>服务健康检查</th>
+<th>对外暴露接口</th>
+<th>SpingClound集成</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Eureka</td>
+<td>Java</td>
+<td>AP</td>
+<td>可配支持</td>
+<td>HTTP</td>
+<td>已集成</td>
+</tr>
+<tr>
+<td align="center">Consul</td>
+<td>Go</td>
+<td>CP</td>
+<td>支持</td>
+<td>HTTP/DNS</td>
+<td>已集成</td>
+</tr>
+<tr>
+<td align="center">Zookeeper</td>
+<td>Java</td>
+<td>CP</td>
+<td>支持</td>
+<td>客户端</td>
+<td>已集成</td>
+</tr>
+</tbody></table>
+<hr>
+<p>​    以上差不多就是微服务注册中心的一些基础知识了，至于Nacos会把它放到最后再谈，毕竟它将注册中心、总线和服务配置集成到了一起。</p>
+<p>本文参考文章或视频</p>
+<p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1650890231453975345&wfr=spider&for=pc">CAP</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.atguigu.com/download_detail.shtml?v=281">尚硅谷微服务</a></p>
+<p>​    最后推广一下与朋友一起维护的公众号，两个爱钻研的程序员，记录学习过程，与你一起成长！每周都会更新4篇文章哟~</p>
+<p><img src="https://gitee.com/lc_monster/my-image/raw/master/gongzhonghao.jpg" alt="公众号二维码"></p>
+<p>我是<code>Monster</code>，与你一起成长，那~下篇文章见O(∩_∩)O！</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Monster</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://47.101.148.21/2021/cl7fwy2620031wt9p6pat5mfz/">https://47.101.148.21/2021/cl7fwy2620031wt9p6pat5mfz/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://47.101.148.21" target="_blank">我的怪兽猫</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Spring-Clond/">Spring Clond</a></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/cl7fwy25v001iwt9pawjpbjed/"><img class="prev-cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/1.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">20 张图彻底弄懂 HTTPS!</div></div></a></div><div class="next-post pull-right"><a href="/2021/cl7fwy263003kwt9p8gko4jkv/"><img class="next-cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">服务调用</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/cl7fwy263003dwt9pd2uxdor5/" title="服务降级"><img class="cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2022-04-16</div><div class="title">服务降级</div></div></a></div><div><a href="/2021/cl7fwy263003hwt9p27ppc49z/" title="服务网关"><img class="cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2022-04-16</div><div class="title">服务网关</div></div></a></div><div><a href="/2021/cl7fwy263003kwt9p8gko4jkv/" title="服务调用"><img class="cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2022-04-16</div><div class="title">服务调用</div></div></a></div><div><a href="/2021/cl7fwy264003pwt9p98lth9qb/" title="消息驱动"><img class="cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2022-04-16</div><div class="title">消息驱动</div></div></a></div><div><a href="/2021/cl7fwy264003swt9pb04c04nd/" title="链路追踪"><img class="cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2022-04-16</div><div class="title">链路追踪</div></div></a></div><div><a href="/2021/cl7fwy264003xwt9pa3zf1bpm/" title="配置中心"><img class="cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2022-04-16</div><div class="title">配置中心</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Monster</div><div class="author-info__description">山腰的风景很美，然而我还是想到山顶去看看</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div><a class="button--animated" id="card-info-btn" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1264833435&amp;website=www.oicqzone.com"><i class="iconfont icon-open"></i><span>Link Start</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/MyMonsterCat" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">祝大家新年快乐，虎虎生威~！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81SpringCloud%E6%9C%80%E6%96%B0%E6%A6%82%E8%A7%88"><span class="toc-text">一、SpringCloud最新概览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0"><span class="toc-text">二、服务注册与发现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89-Eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0"><span class="toc-text">（一） Eureka服务注册与发现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86"><span class="toc-text">1.1  什么是服务治理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C"><span class="toc-text">1.2 服务注册</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0%EF%BC%9F"><span class="toc-text">1.2.1 什么是服务注册与发现？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C"><span class="toc-text">1.2.2 为什么要服务注册?</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Eureka%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%BB%84%E4%BB%B6"><span class="toc-text">1.3 Eureka的两个组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-Eureka%E4%B8%8EDuboo%E6%9E%B6%E6%9E%84%E5%AF%B9%E6%AF%94"><span class="toc-text">1.4 Eureka与Duboo架构对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E5%AE%9E%E6%88%98%EF%BC%9A%E5%AE%9E%E7%8E%B0%E5%8D%95%E6%9C%BA%E7%89%88eureka"><span class="toc-text">1.5 实战：实现单机版eureka</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A0-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AEcloud-eureka-server-7001"><span class="toc-text">① 创建项目cloud_eureka_server_7001</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A1-%E5%BC%95%E5%85%A5pom%E4%BE%9D%E8%B5%96"><span class="toc-text">② 引入pom依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">③ 配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A3-%E4%B8%BB%E5%90%AF%E5%8A%A8%E7%B1%BB"><span class="toc-text">④ 主启动类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A4-%E5%90%AF%E5%8A%A8%E5%BD%93%E5%89%8D%E9%A1%B9%E7%9B%AE-eureka%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-text">⑤ 启动当前项目(eureka服务端)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A5%E5%85%B6%E4%BB%96%E6%9C%8D%E5%8A%A1-%E6%A8%A1%E5%9D%97-%E6%B3%A8%E5%86%8C%E5%88%B0eureka"><span class="toc-text">⑥其他服务(模块)注册到eureka</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E9%9B%86%E7%BE%A4%E7%89%88eureka"><span class="toc-text">1.6 集群版eureka</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-1-%E9%9B%86%E7%BE%A4%E5%8E%9F%E7%90%86"><span class="toc-text">1.6.1 集群原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-2-%E9%9B%86%E7%BE%A4%E6%9E%84%E5%BB%BA%E5%8E%9F%E7%90%86-%E4%BA%92%E7%9B%B8%E6%B3%A8%E5%86%8C"><span class="toc-text">1.6.2 集群构建原理:互相注册</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-3-%E5%AE%9E%E6%88%98%EF%BC%9A%E6%9E%84%E5%BB%BAeureka%E9%9B%86%E7%BE%A4"><span class="toc-text">1.6.3 实战：构建eureka集群</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0-%E6%9E%84%E5%BB%BA%E6%96%B0eureka%E9%9B%86%E7%BE%A4%E9%A1%B9%E7%9B%AE-cloud-eureka-server-7002"><span class="toc-text">① 构建新eureka集群项目:cloud_eureka_server_7002</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A1-pom%E6%96%87%E4%BB%B6-%E7%B2%98%E8%B4%B47001%E7%9A%84%E5%8D%B3%E5%8F%AF"><span class="toc-text">② pom文件:粘贴7001的即可</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-1"><span class="toc-text">③ 配置文件:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A3-%E4%B8%BB%E5%90%AF%E5%8A%A8%E7%B1%BB-1"><span class="toc-text">④ 主启动类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A4-%E7%84%B6%E5%90%8E%E5%90%AF%E5%8A%A87001-7002%E5%8D%B3%E5%8F%AF"><span class="toc-text">⑤ 然后启动7001,7002即可</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A5-%E5%B0%86pay-order%E6%A8%A1%E5%9D%97%E6%B3%A8%E5%86%8C%E5%88%B0eureka%E9%9B%86%E7%BE%A4%E4%B8%AD"><span class="toc-text">⑥ 将pay,order模块注册到eureka集群中:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1%EF%BC%89%E5%8F%AA%E9%9C%80%E8%A6%81%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8D%B3%E5%8F%AF"><span class="toc-text">1）只需要修改配置文件即可</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2%EF%BC%89%E4%B8%A4%E4%B8%AA%E6%A8%A1%E5%9D%97%E9%83%BD%E4%BF%AE%E6%94%B9%E4%B8%8A%E9%9D%A2%E7%9A%84%E9%83%BD%E4%B8%80%E6%A0%B7%E5%8D%B3%E5%8F%AF"><span class="toc-text">2）两个模块都修改上面的都一样即可</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A6-%E5%B0%86pay%E6%A8%A1%E5%9D%97%E6%9E%84%E5%BB%BA%E9%9B%86%E7%BE%A4%E7%8E%AF"><span class="toc-text">⑦ 将pay模块构建集群环</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%96%B0%E5%A2%9Epay%E6%A8%A1%E5%9D%97cloud-provider-payment8002%EF%BC%8C%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4%E7%9C%81%E7%95%A5"><span class="toc-text">新增pay模块cloud-provider-payment8002，具体步骤省略</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-actuator%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF%E5%AE%8C%E5%96%84"><span class="toc-text">1.7 actuator微服务信息完善</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-eureka%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0"><span class="toc-text">1.8 eureka服务发现:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-8-1-%E5%9C%A8controller%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%B3%A8%E8%A7%A3"><span class="toc-text">1.8.1 在controller中添加一个注解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-8-2-%E5%9C%A8%E4%B8%BB%E5%90%AF%E5%8A%A8%E7%B1%BB%E4%B8%8A%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%B3%A8%E8%A7%A3"><span class="toc-text">1.8.2 在主启动类上添加一个注解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-9-Eureka%E8%87%AA%E6%88%91%E4%BF%9D%E6%8A%A4"><span class="toc-text">1.9 Eureka自我保护</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-9-1-%E6%95%85%E9%9A%9C%E7%8E%B0%E8%B1%A1"><span class="toc-text">1.9.1 故障现象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-9-2-%E5%AF%BC%E8%87%B4%E5%8E%9F%E5%9B%A0"><span class="toc-text">1.9.2 导致原因</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-9-3-%E6%80%8E%E4%B9%88%E7%A6%81%E6%AD%A2%E8%87%AA%E6%88%91%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6"><span class="toc-text">1.9.3 怎么禁止自我保护机制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89Zookeeper%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0"><span class="toc-text">（二）Zookeeper服务注册与发现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Zookeeper%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">2.1 Zookeeper是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%8D%95%E6%9C%BA%E7%89%88zookeeper"><span class="toc-text">2.2 单机版zookeeper</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-%E5%9C%A8linux%E4%B8%8A%E5%90%AF%E5%8A%A8Zookeeper"><span class="toc-text">2.2.1 在linux上启动Zookeeper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84pay%E6%A8%A1%E5%9D%97cloud-provider-payment8004"><span class="toc-text">2.2.2 创建新的pay模块cloud-provider-payment8004</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0-pom%E4%BE%9D%E8%B5%96"><span class="toc-text">① pom依赖</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A1-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">② 配置文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A2-%E4%B8%BB%E5%90%AF%E5%8A%A8%E7%B1%BB%EF%BC%88%E7%95%A5%EF%BC%89"><span class="toc-text">③ 主启动类（略）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A3-controller"><span class="toc-text">④ controller</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A4%E5%90%AF%E5%8A%A8"><span class="toc-text">⑤启动</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-%E5%88%9B%E5%BB%BAorder%E6%B6%88%E8%B4%B9%E6%A8%A1%E5%9D%97%E6%B3%A8%E5%86%8C%E5%88%B0zk"><span class="toc-text">2.2.3 创建order消费模块注册到zk</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AEcloud-order-zk-80"><span class="toc-text">① 创建项目cloud_order_zk_80</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A1-pom-%E7%95%A5"><span class="toc-text">② pom(略)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-2"><span class="toc-text">③ 配置文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A3-%E4%B8%BB%E5%90%AF%E5%8A%A8%E7%B1%BB-%E7%95%A5"><span class="toc-text">④ 主启动类(略)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A4-RestTemolate%E5%90%8C%E6%A0%B7%E6%B7%BB%E5%8A%A0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%B3%A8%E8%A7%A3"><span class="toc-text">⑤ RestTemolate同样添加负载均衡注解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A5-controller"><span class="toc-text">⑥ controller</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E9%9B%86%E7%BE%A4%E7%89%88zookeeper"><span class="toc-text">2.3 集群版zookeeper</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89Consul%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0"><span class="toc-text">（三）Consul服务注册与发现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Consul%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">3.1 Consul是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E8%83%BD%E5%B9%B2%E5%98%9B"><span class="toc-text">3.2 能干嘛</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%AE%89%E8%A3%85%E5%B9%B6%E8%BF%90%E8%A1%8CConsul"><span class="toc-text">3.3 安装并运行Consul</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-%E5%AE%98%E7%BD%91%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E"><span class="toc-text">3.3.1 官网安装说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-text">3.3.2 查看版本信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-%E4%BD%BF%E7%94%A8%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F%E5%90%AF%E5%8A%A8"><span class="toc-text">3.3.3 使用开发模式启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-4-%E5%AE%9E%E6%88%98"><span class="toc-text">3.3.4 实战</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0-%E6%96%B0%E5%BB%BA%E6%A8%A1%E5%9D%97cloud-consule-pay-8006"><span class="toc-text">① 新建模块cloud_consule_pay_8006</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A1-pom%E4%BE%9D%E8%B5%96"><span class="toc-text">② pom依赖</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-3"><span class="toc-text">③ 配置文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A3-%E4%B8%BB%E5%90%AF%E5%8A%A8%E7%B1%BB-2"><span class="toc-text">④ 主启动类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A4-controller"><span class="toc-text">⑤ controller</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A5%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="toc-text">⑥启动服务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A6-%E6%96%B0%E5%BB%BA%E6%A8%A1%E5%9D%97cloud-consul-order-80"><span class="toc-text">⑦ 新建模块cloud-consul-order-80</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89CAP%E4%B8%8E%E4%B8%89%E4%B8%AA%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="toc-text">（四）CAP与三个注册中心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-CAP%E7%90%86%E8%AE%BA"><span class="toc-text">4.1 CAP理论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E4%B8%89%E4%B8%AA%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%BC%82%E5%90%8C"><span class="toc-text">4.2 三个注册中心异同</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwy26o00a3wt9p44xg062l/" title="软件设计师-操作系统"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/image-20220301002332267.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件设计师-操作系统"/></a><div class="content"><a class="title" href="/2022/cl7fwy26o00a3wt9p44xg062l/" title="软件设计师-操作系统">软件设计师-操作系统</a><time datetime="2022-02-28T16:19:16.000Z" title="发表于 2022-03-01 00:19:16">2022-03-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwy25r000xwt9pbvqc234p/" title="DDD领域驱动设计-4.实践及其他"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-4.实践及其他"/></a><div class="content"><a class="title" href="/2022/cl7fwy25r000xwt9pbvqc234p/" title="DDD领域驱动设计-4.实践及其他">DDD领域驱动设计-4.实践及其他</a><time datetime="2022-02-28T06:44:12.000Z" title="发表于 2022-02-28 14:44:12">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwy25o000hwt9p29m35o3e/" title="DDD领域驱动设计-3.分层架构"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-3.分层架构"/></a><div class="content"><a class="title" href="/2022/cl7fwy25o000hwt9p29m35o3e/" title="DDD领域驱动设计-3.分层架构">DDD领域驱动设计-3.分层架构</a><time datetime="2022-02-28T05:02:52.000Z" title="发表于 2022-02-28 13:02:52">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwy25n000fwt9p22fwgulj/" title="DDD领域驱动设计-2.基本概念"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-2.基本概念"/></a><div class="content"><a class="title" href="/2022/cl7fwy25n000fwt9p22fwgulj/" title="DDD领域驱动设计-2.基本概念">DDD领域驱动设计-2.基本概念</a><time datetime="2022-02-28T04:32:52.000Z" title="发表于 2022-02-28 12:32:52">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwy25p000lwt9p4nkvb03j/" title="DDD领域驱动设计-1.入门介绍"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-1.入门介绍"/></a><div class="content"><a class="title" href="/2022/cl7fwy25p000lwt9p4nkvb03j/" title="DDD领域驱动设计-1.入门介绍">DDD领域驱动设计-1.入门介绍</a><time datetime="2022-02-28T04:02:52.000Z" title="发表于 2022-02-28 12:02:52">2022-02-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Monster</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43010402000915"><span> 湘公网安备 43010402000915号 </span></a><a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/"><img class="icp-icon" src="/img/icp.png"><span>鲁ICP备2021006500号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'gta1kVza0nbBPTle7TavUngV-gzGzoHsz',
+      appKey: 'jLVBRdBH7kwXKGX1ihnCyXYj',
+      placeholder: '记得留下你的昵称和邮箱，我可以在收到以后快速回复',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '4',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener toc scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-9V4FJV65ZE', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

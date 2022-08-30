@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配置中心 | 我的怪兽猫</title><meta name="keywords" content="SpringClond"><meta name="author" content="Monster"><meta name="copyright" content="Monster"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="微服务组件配置中心学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置中心">
+<meta property="og:url" content="https://47.101.148.21/2021/cl7fwy264003xwt9pa3zf1bpm/index.html">
+<meta property="og:site_name" content="我的怪兽猫">
+<meta property="og:description" content="微服务组件配置中心学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg">
+<meta property="article:published_time" content="2021-03-01T01:25:00.000Z">
+<meta property="article:modified_time" content="2022-04-16T07:18:08.000Z">
+<meta property="article:author" content="Monster">
+<meta property="article:tag" content="Spring Clond">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://47.101.148.21/2021/cl7fwy264003xwt9pa3zf1bpm/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-9V4FJV65ZE"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-9V4FJV65ZE');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '配置中心',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2022-04-16 15:18:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/MyStyle/MyStyle.css" media="defer" onload="this.media='all'"/><link rel="stylesheet" href="/css/MyStyle/tagStyle.css" media="defer" onload="this.media='all'"/><link rel="stylesheet" href="/css/MyStyle/JetBrainsMono.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_2630408_9i65adv8yet.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首  页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-wenzhangguanli"></i><span> 看文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标  签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分  类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 搞学习</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/pdf/"><i class="fa-fw iconfont icon-pdf"></i><span> PDF</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw iconfont icon-movie"></i><span> Movie</span></a></li><li><a class="site-page child" href="/leetcode/"><i class="fa-fw iconfont icon-leetcode"></i><span> 算  法</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-xiuxi"></i><span> 去娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce1"></i><span> 相册</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw iconfont icon-book"></i><span> 书单</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 异世界</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-wogerenziliao"></i><span> 关  于</span></a></div><div class="menus_item"><a class="site-page" href="/love/"><i class="fa-fw iconfont icon-aixin"></i><span> 我  们</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">我的怪兽猫</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首  页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-wenzhangguanli"></i><span> 看文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标  签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分  类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 搞学习</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/pdf/"><i class="fa-fw iconfont icon-pdf"></i><span> PDF</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw iconfont icon-movie"></i><span> Movie</span></a></li><li><a class="site-page child" href="/leetcode/"><i class="fa-fw iconfont icon-leetcode"></i><span> 算  法</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-xiuxi"></i><span> 去娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce1"></i><span> 相册</span></a></li><li><a class="site-page child" href="/book/"><i class="fa-fw iconfont icon-book"></i><span> 书单</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 异世界</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-wogerenziliao"></i><span> 关  于</span></a></div><div class="menus_item"><a class="site-page" href="/love/"><i class="fa-fw iconfont icon-aixin"></i><span> 我  们</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">配置中心</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-03-01T01:25:00.000Z" title="发表于 2021-03-01 09:25:00">2021-03-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-16T07:18:08.000Z" title="更新于 2022-04-16 15:18:08">2022-04-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/SpringCloud/">SpringCloud</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="配置中心"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="配置中心"><a href="#配置中心" class="headerlink" title="配置中心"></a>配置中心</h1><h2 id="（一）概述"><a href="#（一）概述" class="headerlink" title="（一）概述"></a>（一）概述</h2><h3 id="1-分布式系统面临的配置问题"><a href="#1-分布式系统面临的配置问题" class="headerlink" title="1. 分布式系统面临的配置问题"></a>1. 分布式系统面临的配置问题</h3><p>​    众所周知，每个微服务都需要一个配置文件，并且如果有几个微服务都需要连接数据库，那么就需要配4次数据库相关配置,并且当数据库发生改动，那么需要同时修改4个微服务的配置文件才可以，所以有了springconfig配置中心</p>
+<p>​    SpringCloudConfig为微服务架构中的微服务提供集中化的外部配置支持，配置服务器为各个不同微服务应用的所有环境提供了一个中心化的外部配置，如下图所示</p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Config/springconfig%E7%9A%842.png"></p>
+<h3 id="2-是什么"><a href="#2-是什么" class="headerlink" title="2. 是什么"></a>2. 是什么</h3><p>​    SpringCloud Config分为服务端和客户端两部分，<strong>服务端也称为分布式配置中心</strong>，它是一个独立的微服务应用，用来连接配置服务器并为客户点提供获取配置信息，加密/解密信息等访问接口，客户端则是通过指定的配置中心来管理应用资源，以及与业务相关的配置内容，并在启动的时候从配置中心获取和加载配置信息配置服务器，默认采用git来存储配置信息，这样就有助于对环境配置进行版本管理，并且可以通过git客户端工具来方便的管理和访问配置内容。</p>
+<h3 id="3-能干嘛"><a href="#3-能干嘛" class="headerlink" title="3. 能干嘛"></a>3. 能干嘛</h3><ul>
+<li>集中管理配置文件</li>
+<li>不同环境不同配置，动态化的配置更新，分环境部署比如dev/test/prod/beta/release</li>
+<li>运行期间动态调整配置，不再需要在每个服务部署的机器上编写配置文件，服务会向配置中心统一拉取配置自己的信息</li>
+<li>当配置发生变动时，服务不需要重启即可感知到配置的变化并应用新的配置</li>
+<li>将配置信息以REST接口的形式暴露</li>
+</ul>
+<h2 id="（二）服务端使用配置中心"><a href="#（二）服务端使用配置中心" class="headerlink" title="（二）服务端使用配置中心"></a>（二）服务端使用配置中心</h2><h3 id="1-使用github作为配置中心的仓库"><a href="#1-使用github作为配置中心的仓库" class="headerlink" title="1. 使用github作为配置中心的仓库"></a>1. 使用github作为配置中心的仓库</h3><p>​    由于SpringCloud Config默认使用Git来存储配置文件（也有其它方式，比如支持svn和本地文件，但最推荐的还是Git，而且使用的是http/https访问的形式）</p>
+<p><strong>初始化git环境:</strong></p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Config/springconfig%E7%9A%845.png"></p>
+<h3 id="2-yaml"><a href="#2-yaml" class="headerlink" title="2. yaml"></a>2. yaml</h3><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">3344</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>config<span class="token punctuation">-</span>center
+  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+    <span class="token key atrule">config</span><span class="token punctuation">:</span>
+      <span class="token key atrule">server</span><span class="token punctuation">:</span>
+        <span class="token key atrule">git</span><span class="token punctuation">:</span>
+          <span class="token key atrule">uri</span><span class="token punctuation">:</span>  填写你自己的github路径
+          <span class="token key atrule">search-paths</span><span class="token punctuation">:</span>
+            <span class="token punctuation">-</span> springcloud<span class="token punctuation">-</span>config
+      <span class="token key atrule">label</span><span class="token punctuation">:</span> master
+<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
+  <span class="token key atrule">client</span><span class="token punctuation">:</span>
+    <span class="token key atrule">service-url</span><span class="token punctuation">:</span>
+      <span class="token key atrule">defaultZone</span><span class="token punctuation">:</span>  http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>7001/eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-主启动类"><a href="#3-主启动类" class="headerlink" title="3. 主启动类"></a>3. 主启动类</h3><p>​    主启动类加上注解@EnableConfigServer</p>
+<h3 id="4-修改hosts"><a href="#4-修改hosts" class="headerlink" title="4. 修改hosts"></a>4. 修改hosts</h3><p>windows下修改hosts文件，增加映射</p>
+<pre class="line-numbers language-none"><code class="language-none">127.0.0.1 config-3344.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="5-测试"><a href="#5-测试" class="headerlink" title="5. 测试"></a>5. 测试</h3><p>启动3344    (要先启动eureka)</p>
+<p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Config/springconfig%E7%9A%849.png"></p>
+<p>它实际上就是,读取到配置文件中的GitHub的地址,然后拼接上/master/config-dev.yml</p>
+<h3 id="6-配置文件规则"><a href="#6-配置文件规则" class="headerlink" title="6. 配置文件规则"></a>6. 配置文件规则</h3><p>/{label}/{application}-{profile}.yml  最推荐使用这种方式，但是它要求配置文件的名字是xxx-xxx.yml</p>
+<p>/{application}-{profile}.yml   直接指定配置文件的名字，默认读取master分支</p>
+<p>/{application}-{profile}[/{label}] 这个方式读取到的配置是json格式的</p>
+<h2 id="（三）服务端使用配置中心"><a href="#（三）服务端使用配置中心" class="headerlink" title="（三）服务端使用配置中心"></a>（三）服务端使用配置中心</h2><h3 id="1-使用bootstrap-yml"><a href="#1-使用bootstrap-yml" class="headerlink" title="1.  使用bootstrap.yml"></a>1.  使用bootstrap.yml</h3><ul>
+<li><p>这个配置文件不是application.yml，作用是先到配置中心加载配置，然后加载到application.yml中</p>
+</li>
+<li><p>applicaiton. yml是用户级的资源配置项</p>
+</li>
+<li><p>bootstrap.yml是系统级的，优先级更加高</p>
+</li>
+<li><p>Spring Cloud会创建一 个”Bootstrap Context” ，作为Spring应用的Application Context的父上文。初始化的时候,Bootstrap Context负责从外部源加载配置属性并解析配置。这两个上下文共享一个从外部获取的 Environment。</p>
+</li>
+<li><p>Bootstrap属性有高优先级，默认情况下，它们不会被本地配置覆盖。 Bootstrap context和Application Context有着不同的约定，所以新增了一个bootstrap.ymI文件，保证Bootstrap Context和Application Context配置的分离。</p>
+</li>
+<li><p>要将Client模块下的application.yml文件改为bootstrap.yml，这是很关键的，因为bootstrap.ym是比application.yml先加载的。bootstrap.ymI优先级高于 application.yml</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">3355</span>
+
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> config<span class="token punctuation">-</span>client
+  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+    <span class="token key atrule">config</span><span class="token punctuation">:</span> <span class="token comment">#这是个整合在一起的意思是 读取 http://localhost:3344/matster/config-dev.yml</span>
+      <span class="token key atrule">label</span><span class="token punctuation">:</span> master <span class="token comment">#分支名称</span>
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> config <span class="token comment">#配置文件名称</span>
+      <span class="token key atrule">profile</span><span class="token punctuation">:</span> dev <span class="token comment">#读取后缀名称</span>
+      <span class="token key atrule">uri</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">3344</span> <span class="token comment">#配置中心地址</span>
+<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
+  <span class="token key atrule">client</span><span class="token punctuation">:</span>
+    <span class="token key atrule">service-url</span><span class="token punctuation">:</span>
+      <span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//eureka7001.com<span class="token punctuation">:</span>7001/eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h3 id="2-业务类"><a href="#2-业务类" class="headerlink" title="2. 业务类"></a>2. 业务类</h3><p>以rest风格将配置对外暴露</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConfigClientController</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;config.info&#125;"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> configInfo<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/configInfo"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getConfigInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> configInfo<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-测试"><a href="#3-测试" class="headerlink" title="3.测试"></a>3.测试</h3><p>​    启动Config配置中心3344微服务并自测，启动3355作为Client准备访问，成功实现了客户端3355访问SpringCloud Config3344通过GitHub获取配置信息</p>
+<h2 id="（四）分布式配置的动态刷新"><a href="#（四）分布式配置的动态刷新" class="headerlink" title="（四）分布式配置的动态刷新"></a>（四）分布式配置的动态刷新</h2><p>​    上面3355确实获取到了配置文件,但是如果此时配置文件修改了,3355是获取不到的，3344可以实时获取到最新配置文件,但是3355却获取不到，除非重启服务</p>
+<h3 id="实现动态刷新"><a href="#实现动态刷新" class="headerlink" title="实现动态刷新"></a>实现动态刷新</h3><h4 id="修改3355-添加一个pom依赖"><a href="#修改3355-添加一个pom依赖" class="headerlink" title="修改3355,添加一个pom依赖:"></a>修改3355,添加一个pom依赖:</h4><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Config/springconfig%E7%9A%8422.png"></p>
+<h4 id="修改配置文件-添加一个配置"><a href="#修改配置文件-添加一个配置" class="headerlink" title="修改配置文件,添加一个配置:"></a>修改配置文件,添加一个配置:</h4><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Config/springconfig%E7%9A%8423.png"></p>
+<h4 id="修改controller"><a href="#修改controller" class="headerlink" title="修改controller:"></a>修改controller:</h4><p><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Config/springconfig%E7%9A%8424.png"></p>
+<h4 id="此时重启服务"><a href="#此时重启服务" class="headerlink" title="此时重启服务"></a>此时重启服务</h4><p><strong>此时3355还不可以动态获取</strong></p>
+<p>因为此时，还需要外部发送post请求通知3355，<strong>此时再刷新3355,发现可以获取到最新的配置文件了，这就实现了动态获取配置文件，因为3355并没有重启</strong></p>
+<p>具体流程就是:</p>
+<p>​            我们启动好服务后</p>
+<p>​            运维人员,修改了配置文件,然后发送一个post请求通知3355</p>
+<p>​            3355就可以获取最新配置文件</p>
+<p><strong>问题:</strong></p>
+<p>​        如果有多个客户端怎么办(3355,3356,3357…..)，虽然可以使用shell脚本,循环刷新</p>
+<p>​        但是，可不可以使用广播，一次通知？这些springconfig做不到,需要使用springcloud Bus消息总线</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Monster</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://47.101.148.21/2021/cl7fwy264003xwt9pa3zf1bpm/">https://47.101.148.21/2021/cl7fwy264003xwt9pa3zf1bpm/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://47.101.148.21" target="_blank">我的怪兽猫</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Spring-Clond/">Spring Clond</a></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/cl7fwy264003swt9pb04c04nd/"><img class="prev-cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">链路追踪</div></div></a></div><div class="next-post pull-right"><a href="/2021/cl7fwy2640040wt9p5273b7i4/"><img class="next-cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">消息总线</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/cl7fwy2620031wt9p6pat5mfz/" title="注册中心"><img class="cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2022-04-16</div><div class="title">注册中心</div></div></a></div><div><a href="/2021/cl7fwy263003dwt9pd2uxdor5/" title="服务降级"><img class="cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2022-04-16</div><div class="title">服务降级</div></div></a></div><div><a href="/2021/cl7fwy263003hwt9p27ppc49z/" title="服务网关"><img class="cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2022-04-16</div><div class="title">服务网关</div></div></a></div><div><a href="/2021/cl7fwy263003kwt9p8gko4jkv/" title="服务调用"><img class="cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2022-04-16</div><div class="title">服务调用</div></div></a></div><div><a href="/2021/cl7fwy264003pwt9p98lth9qb/" title="消息驱动"><img class="cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2022-04-16</div><div class="title">消息驱动</div></div></a></div><div><a href="/2021/cl7fwy264003swt9pb04c04nd/" title="链路追踪"><img class="cover" src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Blog_Cover/SpringCloud.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2022-04-16</div><div class="title">链路追踪</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Monster</div><div class="author-info__description">山腰的风景很美，然而我还是想到山顶去看看</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div></div><a class="button--animated" id="card-info-btn" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1264833435&amp;website=www.oicqzone.com"><i class="iconfont icon-open"></i><span>Link Start</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/MyMonsterCat" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">祝大家新年快乐，虎虎生威~！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"><span class="toc-text">配置中心</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E6%A6%82%E8%BF%B0"><span class="toc-text">（一）概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E9%9D%A2%E4%B8%B4%E7%9A%84%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98"><span class="toc-text">1. 分布式系统面临的配置问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">2. 是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%83%BD%E5%B9%B2%E5%98%9B"><span class="toc-text">3. 能干嘛</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"><span class="toc-text">（二）服务端使用配置中心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E7%9A%84%E4%BB%93%E5%BA%93"><span class="toc-text">1. 使用github作为配置中心的仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-yaml"><span class="toc-text">2. yaml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%BB%E5%90%AF%E5%8A%A8%E7%B1%BB"><span class="toc-text">3. 主启动类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BF%AE%E6%94%B9hosts"><span class="toc-text">4. 修改hosts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%B5%8B%E8%AF%95"><span class="toc-text">5. 测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%84%E5%88%99"><span class="toc-text">6. 配置文件规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"><span class="toc-text">（三）服务端使用配置中心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8bootstrap-yml"><span class="toc-text">1.  使用bootstrap.yml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%9A%E5%8A%A1%E7%B1%BB"><span class="toc-text">2. 业务类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B5%8B%E8%AF%95"><span class="toc-text">3.测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE%E7%9A%84%E5%8A%A8%E6%80%81%E5%88%B7%E6%96%B0"><span class="toc-text">（四）分布式配置的动态刷新</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8A%A8%E6%80%81%E5%88%B7%E6%96%B0"><span class="toc-text">实现动态刷新</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B93355-%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AApom%E4%BE%9D%E8%B5%96"><span class="toc-text">修改3355,添加一个pom依赖:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E9%85%8D%E7%BD%AE"><span class="toc-text">修改配置文件,添加一个配置:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9controller"><span class="toc-text">修改controller:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A4%E6%97%B6%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1"><span class="toc-text">此时重启服务</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwy26o00a3wt9p44xg062l/" title="软件设计师-操作系统"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/image-20220301002332267.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软件设计师-操作系统"/></a><div class="content"><a class="title" href="/2022/cl7fwy26o00a3wt9p44xg062l/" title="软件设计师-操作系统">软件设计师-操作系统</a><time datetime="2022-02-28T16:19:16.000Z" title="发表于 2022-03-01 00:19:16">2022-03-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwy25r000xwt9pbvqc234p/" title="DDD领域驱动设计-4.实践及其他"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-4.实践及其他"/></a><div class="content"><a class="title" href="/2022/cl7fwy25r000xwt9pbvqc234p/" title="DDD领域驱动设计-4.实践及其他">DDD领域驱动设计-4.实践及其他</a><time datetime="2022-02-28T06:44:12.000Z" title="发表于 2022-02-28 14:44:12">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwy25o000hwt9p29m35o3e/" title="DDD领域驱动设计-3.分层架构"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-3.分层架构"/></a><div class="content"><a class="title" href="/2022/cl7fwy25o000hwt9p29m35o3e/" title="DDD领域驱动设计-3.分层架构">DDD领域驱动设计-3.分层架构</a><time datetime="2022-02-28T05:02:52.000Z" title="发表于 2022-02-28 13:02:52">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwy25n000fwt9p22fwgulj/" title="DDD领域驱动设计-2.基本概念"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-2.基本概念"/></a><div class="content"><a class="title" href="/2022/cl7fwy25n000fwt9p22fwgulj/" title="DDD领域驱动设计-2.基本概念">DDD领域驱动设计-2.基本概念</a><time datetime="2022-02-28T04:32:52.000Z" title="发表于 2022-02-28 12:32:52">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/cl7fwy25p000lwt9p4nkvb03j/" title="DDD领域驱动设计-1.入门介绍"><img src="https://raw.githubusercontent.com/MyMonsterCat/md_image/main/%E5%9F%BA%E7%A1%80/Pic/13236281-3fa098f26ad1664c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DDD领域驱动设计-1.入门介绍"/></a><div class="content"><a class="title" href="/2022/cl7fwy25p000lwt9p4nkvb03j/" title="DDD领域驱动设计-1.入门介绍">DDD领域驱动设计-1.入门介绍</a><time datetime="2022-02-28T04:02:52.000Z" title="发表于 2022-02-28 12:02:52">2022-02-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Monster</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43010402000915"><span> 湘公网安备 43010402000915号 </span></a><a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/"><img class="icp-icon" src="/img/icp.png"><span>鲁ICP备2021006500号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'gta1kVza0nbBPTle7TavUngV-gzGzoHsz',
+      appKey: 'jLVBRdBH7kwXKGX1ihnCyXYj',
+      placeholder: '记得留下你的昵称和邮箱，我可以在收到以后快速回复',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '4',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener toc scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-9V4FJV65ZE', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
