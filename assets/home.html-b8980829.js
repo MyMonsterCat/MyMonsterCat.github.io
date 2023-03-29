@@ -1,0 +1,1 @@
+import{_ as t,W as n,X as o,Y as e,Z as s}from"./framework-805f0bea.js";const c={},l=e("div",{class:"hint-container tip"},[e("p",{class:"hint-container-title"},"友情提示"),e("ul",null,[e("li",null,[e("strong",null,"首页"),s(" ：首页")])])],-1),a=[l];function r(_,i){return n(),o("div",null,a)}const h=t(c,[["render",r],["__file","home.html.vue"]]);export{h as default};
