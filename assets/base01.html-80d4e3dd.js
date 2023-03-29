@@ -1,0 +1,1 @@
+import{_ as e,W as t,X as s,Y as _}from"./framework-17a5d3b6.js";const c={},o=_("p",null,"待完成",-1),n=[o];function a(r,l){return t(),s("div",null,n)}const f=e(c,[["render",a],["__file","base01.html.vue"]]);export{f as default};

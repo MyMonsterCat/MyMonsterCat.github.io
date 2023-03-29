@@ -1,0 +1,1 @@
+import{_ as t,W as n,X as s,Y as e,Z as c}from"./framework-17a5d3b6.js";const l={},o=e("div",{class:"hint-container tip"},[e("p",{class:"hint-container-title"},"友情提示"),e("ul",null,[e("li",null,[e("strong",null,"首页"),c(" ：首页")])])],-1),a=[o];function r(_,i){return n(),s("div",null,a)}const u=t(l,[["render",r],["__file","HOME.html.vue"]]);export{u as default};
