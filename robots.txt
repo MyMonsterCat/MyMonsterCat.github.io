@@ -2,4 +2,4 @@
 User-agent:*
 Disallow:
 
-Sitemap: http://monstercat.cn/sitemap.xml
+Sitemap: https://monstercat.cn/sitemap.xml
